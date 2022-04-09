@@ -1,8 +1,8 @@
 CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
- /home/spongiforma/source/geant4-example_muon/source/src/muDetectorConstruction.cc \
+ /home/spongiforma/source/copy/geant4-example_muon/source/src/muDetectorConstruction.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/geant4-example_muon/source/include/muDetectorConstruction.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muDetectorConstruction.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4SystemOfUnits.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicalConstants.hh \
@@ -188,42 +188,50 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/array \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/uses_allocator.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/invoke.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/quoted_string.h \
  /home/spongiforma/root/include/TTree.h \
- /home/spongiforma/root/include/ROOT/TIOFeatures.hxx \
- /home/spongiforma/root/include/TBasket.h \
- /home/spongiforma/root/include/TKey.h \
- /home/spongiforma/root/include/TNamed.h \
- /home/spongiforma/root/include/TObject.h \
- /home/spongiforma/root/include/RConfigure.h \
- /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/Compression.h \
  /home/spongiforma/root/include/RtypesCore.h \
- /home/spongiforma/root/include/ROOT/RConfig.h \
- /home/spongiforma/root/include/RVersion.h \
+ /home/spongiforma/root/include/ROOT/RConfig.hxx \
+ /home/spongiforma/root/include/ROOT/../RVersion.h \
+ /home/spongiforma/root/include/RConfigure.h \
  /home/spongiforma/root/include/DllImport.h \
- /home/spongiforma/root/include/snprintf.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstddef \
+ /home/spongiforma/root/include/ROOT/TIOFeatures.hxx \
+ /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/strtok.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /usr/include/bits/strings_fortified.h \
+ /usr/include/bits/string_fortified.h \
  /home/spongiforma/root/include/strlcpy.h /usr/include/unistd.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
  /usr/include/bits/getopt_core.h /usr/include/bits/unistd.h \
- /usr/include/bits/unistd_ext.h \
+ /usr/include/bits/unistd_ext.h /home/spongiforma/root/include/snprintf.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/atomic \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/atomic_base.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/atomic_lockfree_defines.h \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/bits/strings_fortified.h \
- /usr/include/bits/string_fortified.h \
  /home/spongiforma/root/include/TGenericClassInfo.h \
  /home/spongiforma/root/include/TSchemaHelper.h \
  /home/spongiforma/root/include/TIsAProxy.h \
  /home/spongiforma/root/include/TVirtualIsAProxy.h \
+ /home/spongiforma/root/include/TArrayD.h \
+ /home/spongiforma/root/include/TArray.h \
+ /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/TArrayI.h \
+ /home/spongiforma/root/include/TAttFill.h \
+ /home/spongiforma/root/include/TAttLine.h \
+ /home/spongiforma/root/include/TAttMarker.h \
+ /home/spongiforma/root/include/TClass.h \
+ /home/spongiforma/root/include/TDictionary.h \
+ /home/spongiforma/root/include/TNamed.h \
+ /home/spongiforma/root/include/TObject.h \
  /home/spongiforma/root/include/TStorage.h \
  /home/spongiforma/root/include/TVersionCheck.h \
  /home/spongiforma/root/include/RVersion.h \
  /home/spongiforma/root/include/TString.h \
  /home/spongiforma/root/include/TMathBase.h \
- /home/spongiforma/root/include/ROOT/RStringView.hxx \
- /home/spongiforma/root/include/RConfigure.h \
- /home/spongiforma/root/include/ROOT/RWrap_libcpp_string_view.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/algorithm \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_algo.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/algorithmfwd.h \
@@ -231,9 +239,10 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_tempbuf.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/uniform_int_dist.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/limits \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/iterator \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stream_iterator.h \
- /home/spongiforma/root/include/ROOT/libcpp_string_view.h \
+ /home/spongiforma/root/include/ROOT/RStringView.hxx \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/string_view \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/bits/lfts_config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/bits/string_view.tcc \
  /home/spongiforma/root/include/ROOT/TypeTraits.hxx \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/memory \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_raw_storage_iter.h \
@@ -246,53 +255,43 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/ext/aligned_buffer.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/shared_ptr_atomic.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/backward/auto_ptr.h \
- /home/spongiforma/root/include/ROOT/RSpan.hxx \
- /home/spongiforma/root/include/ROOT/span.hxx \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstddef \
- /home/spongiforma/root/include/TDatime.h \
- /home/spongiforma/root/include/TBuffer.h \
- /home/spongiforma/root/include/TClass.h \
- /home/spongiforma/root/include/TDictionary.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstdarg \
  /home/spongiforma/root/include/ESTLType.h \
  /home/spongiforma/root/include/TObjArray.h \
  /home/spongiforma/root/include/TSeqCollection.h \
  /home/spongiforma/root/include/TCollection.h \
  /home/spongiforma/root/include/TIterator.h \
  /home/spongiforma/root/include/TVirtualRWMutex.h \
- /home/spongiforma/root/include/TVirtualMutex.h /usr/include/assert.h \
- /home/spongiforma/root/include/TObjString.h \
+ /home/spongiforma/root/include/TVirtualMutex.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cassert \
+ /usr/include/assert.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/iterator \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stream_iterator.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/map \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_tree.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_map.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_multimap.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/erase_if.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/set \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_set.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_multiset.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/unordered_set \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/hashtable.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/hashtable_policy.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/unordered_set.h \
- /home/spongiforma/root/include/ThreadLocalStorage.h \
- /home/spongiforma/root/include/TArrayD.h \
- /home/spongiforma/root/include/TArray.h \
- /home/spongiforma/root/include/TArrayI.h \
- /home/spongiforma/root/include/TAttFill.h \
- /home/spongiforma/root/include/TAttLine.h \
- /home/spongiforma/root/include/TAttMarker.h \
- /home/spongiforma/root/include/TBranch.h \
  /home/spongiforma/root/include/TDataType.h \
+ /home/spongiforma/root/include/TDirectory.h \
+ /home/spongiforma/root/include/TUUID.h \
+ /home/spongiforma/root/include/TList.h \
+ /home/spongiforma/root/include/TBuffer.h \
+ /home/spongiforma/root/include/Bytes.h \
+ /home/spongiforma/root/include/Byteswap.h \
+ /home/spongiforma/root/include/TVirtualTreePlayer.h \
+ /home/spongiforma/root/include/TBranch.h \
  /home/spongiforma/root/include/TBranchCacheInfo.h \
  /home/spongiforma/root/include/TBits.h \
- /home/spongiforma/root/include/TDirectory.h \
- /home/spongiforma/root/include/TList.h \
- /home/spongiforma/root/include/TUUID.h \
- /home/spongiforma/root/include/TVirtualTreePlayer.h \
  /home/spongiforma/root/include/TFile.h \
  /home/spongiforma/root/include/TDirectoryFile.h \
- /home/spongiforma/root/include/TMap.h \
- /home/spongiforma/root/include/THashTable.h \
+ /home/spongiforma/root/include/TDatime.h \
  /home/spongiforma/root/include/TUrl.h \
+ /home/spongiforma/root/include/ROOT/RConcurrentHashColl.hxx \
  /home/spongiforma/root/include/ROOT/TRWSpinLock.hxx \
  /home/spongiforma/root/include/ROOT/TSpinMutex.hxx \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/condition_variable \
@@ -301,7 +300,6 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/parse_numbers.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/std_mutex.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/unique_lock.h \
- /home/spongiforma/root/include/ROOT/RConcurrentHashColl.hxx \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/mutex \
  /home/spongiforma/root/include/TString.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserDetectorConstruction.hh \
@@ -310,7 +308,6 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/iostream \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4String.hh \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstring \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4String.icc \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/templates.hh \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/climits \
@@ -360,7 +357,7 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4LPhysicsFreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicsFreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Pow.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muSensorSD.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muSensorSD.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VSensitiveDetector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Step.hh \
@@ -411,6 +408,9 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Globals.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Types.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Utility.hh \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/set \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_set.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_multiset.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Step.icc \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Track.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/trkdefs.hh \
@@ -451,13 +451,13 @@ CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4TouchableHistory.icc \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4CollectionNameVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VSDFilter.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muSensorHit.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muSensorHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4THitsCollection.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Allocator.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ThreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Track.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Material.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Box.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4GeomTypes.hh \

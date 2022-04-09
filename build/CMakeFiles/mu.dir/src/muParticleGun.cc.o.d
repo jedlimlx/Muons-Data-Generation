@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muParticleGun.cc.o: \
- /home/spongiforma/source/geant4-example_muon/source/src/muParticleGun.cc \
+ /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGun.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/geant4-example_muon/source/include/muParticleGun.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGun.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/globals.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ios.hh \
@@ -203,6 +203,7 @@ CMakeFiles/mu.dir/src/muParticleGun.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/array \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/uses_allocator.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/invoke.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/quoted_string.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/map \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_tree.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/ext/aligned_buffer.h \
@@ -273,90 +274,86 @@ CMakeFiles/mu.dir/src/muParticleGun.cc.o: \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/x86_64-pc-linux-gnu/bits/basic_file.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/x86_64-pc-linux-gnu/bits/c++io.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/fstream.tcc \
- /home/spongiforma/source/geant4-example_muon/source/include/muParticleGunMessenger.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGunMessenger.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UImessenger.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muParticleGun.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muDetectorConstruction.hh \
- /home/spongiforma/source/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGun.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muDetectorConstruction.hh \
+ /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \
  /home/spongiforma/root/include/TTree.h \
- /home/spongiforma/root/include/ROOT/TIOFeatures.hxx \
- /home/spongiforma/root/include/TBasket.h \
- /home/spongiforma/root/include/TKey.h \
- /home/spongiforma/root/include/TNamed.h \
- /home/spongiforma/root/include/TObject.h \
- /home/spongiforma/root/include/RConfigure.h \
- /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/Compression.h \
  /home/spongiforma/root/include/RtypesCore.h \
- /home/spongiforma/root/include/ROOT/RConfig.h \
- /home/spongiforma/root/include/RVersion.h \
+ /home/spongiforma/root/include/ROOT/RConfig.hxx \
+ /home/spongiforma/root/include/ROOT/../RVersion.h \
+ /home/spongiforma/root/include/RConfigure.h \
  /home/spongiforma/root/include/DllImport.h \
- /home/spongiforma/root/include/snprintf.h \
+ /home/spongiforma/root/include/ROOT/TIOFeatures.hxx \
+ /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/strtok.h \
  /home/spongiforma/root/include/strlcpy.h /usr/include/unistd.h \
  /usr/include/bits/posix_opt.h /usr/include/bits/environments.h \
  /usr/include/bits/confname.h /usr/include/bits/getopt_posix.h \
  /usr/include/bits/getopt_core.h /usr/include/bits/unistd.h \
- /usr/include/bits/unistd_ext.h \
+ /usr/include/bits/unistd_ext.h /home/spongiforma/root/include/snprintf.h \
  /home/spongiforma/root/include/TGenericClassInfo.h \
  /home/spongiforma/root/include/TSchemaHelper.h \
  /home/spongiforma/root/include/TIsAProxy.h \
  /home/spongiforma/root/include/TVirtualIsAProxy.h \
+ /home/spongiforma/root/include/TArrayD.h \
+ /home/spongiforma/root/include/TArray.h \
+ /home/spongiforma/root/include/Rtypes.h \
+ /home/spongiforma/root/include/TArrayI.h \
+ /home/spongiforma/root/include/TAttFill.h \
+ /home/spongiforma/root/include/TAttLine.h \
+ /home/spongiforma/root/include/TAttMarker.h \
+ /home/spongiforma/root/include/TClass.h \
+ /home/spongiforma/root/include/TDictionary.h \
+ /home/spongiforma/root/include/TNamed.h \
+ /home/spongiforma/root/include/TObject.h \
  /home/spongiforma/root/include/TStorage.h \
  /home/spongiforma/root/include/TVersionCheck.h \
  /home/spongiforma/root/include/RVersion.h \
  /home/spongiforma/root/include/TString.h \
  /home/spongiforma/root/include/TMathBase.h \
  /home/spongiforma/root/include/ROOT/RStringView.hxx \
- /home/spongiforma/root/include/RConfigure.h \
- /home/spongiforma/root/include/ROOT/RWrap_libcpp_string_view.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/iterator \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stream_iterator.h \
- /home/spongiforma/root/include/ROOT/libcpp_string_view.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/string_view \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/bits/lfts_config.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/experimental/bits/string_view.tcc \
  /home/spongiforma/root/include/ROOT/TypeTraits.hxx \
- /home/spongiforma/root/include/ROOT/RSpan.hxx \
- /home/spongiforma/root/include/ROOT/span.hxx \
- /home/spongiforma/root/include/TDatime.h \
- /home/spongiforma/root/include/TBuffer.h \
- /home/spongiforma/root/include/TClass.h \
- /home/spongiforma/root/include/TDictionary.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cstdarg \
  /home/spongiforma/root/include/ESTLType.h \
  /home/spongiforma/root/include/TObjArray.h \
  /home/spongiforma/root/include/TSeqCollection.h \
  /home/spongiforma/root/include/TCollection.h \
  /home/spongiforma/root/include/TIterator.h \
  /home/spongiforma/root/include/TVirtualRWMutex.h \
- /home/spongiforma/root/include/TVirtualMutex.h /usr/include/assert.h \
- /home/spongiforma/root/include/TObjString.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/set \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_set.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_multiset.h \
+ /home/spongiforma/root/include/TVirtualMutex.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/cassert \
+ /usr/include/assert.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/iterator \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stream_iterator.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/unordered_set \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/hashtable.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/hashtable_policy.h \
  /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/unordered_set.h \
- /home/spongiforma/root/include/ThreadLocalStorage.h \
- /home/spongiforma/root/include/TArrayD.h \
- /home/spongiforma/root/include/TArray.h \
- /home/spongiforma/root/include/TArrayI.h \
- /home/spongiforma/root/include/TAttFill.h \
- /home/spongiforma/root/include/TAttLine.h \
- /home/spongiforma/root/include/TAttMarker.h \
- /home/spongiforma/root/include/TBranch.h \
  /home/spongiforma/root/include/TDataType.h \
+ /home/spongiforma/root/include/TDirectory.h \
+ /home/spongiforma/root/include/TUUID.h \
+ /home/spongiforma/root/include/TList.h \
+ /home/spongiforma/root/include/TBuffer.h \
+ /home/spongiforma/root/include/Bytes.h \
+ /home/spongiforma/root/include/Byteswap.h \
+ /home/spongiforma/root/include/TVirtualTreePlayer.h \
+ /home/spongiforma/root/include/TBranch.h \
  /home/spongiforma/root/include/TBranchCacheInfo.h \
  /home/spongiforma/root/include/TBits.h \
- /home/spongiforma/root/include/TDirectory.h \
- /home/spongiforma/root/include/TList.h \
- /home/spongiforma/root/include/TUUID.h \
- /home/spongiforma/root/include/TVirtualTreePlayer.h \
  /home/spongiforma/root/include/TFile.h \
  /home/spongiforma/root/include/TDirectoryFile.h \
- /home/spongiforma/root/include/TMap.h \
- /home/spongiforma/root/include/THashTable.h \
+ /home/spongiforma/root/include/TDatime.h \
  /home/spongiforma/root/include/TUrl.h \
+ /home/spongiforma/root/include/ROOT/RConcurrentHashColl.hxx \
  /home/spongiforma/root/include/ROOT/TRWSpinLock.hxx \
  /home/spongiforma/root/include/ROOT/TSpinMutex.hxx \
- /home/spongiforma/root/include/ROOT/RConcurrentHashColl.hxx \
  /home/spongiforma/root/include/TString.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserDetectorConstruction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4NistManager.hh \
@@ -404,6 +401,9 @@ CMakeFiles/mu.dir/src/muParticleGun.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Globals.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Types.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/PTL/Utility.hh \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/set \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_set.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/10.2.0/include/g++-v10/bits/stl_multiset.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleTable.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleTableIterator.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleTable.icc \
