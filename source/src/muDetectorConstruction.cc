@@ -69,13 +69,13 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double box_sizeY =     24.0  *mm;  // > voxel_pitchY*number_of_voxel_dimY
   G4double box_sizeZ =     24.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
-  // Control object size
-  G4double cont_sizeX = 30.0 * mm;
-  G4double cont_sizeY = 0.75 * box_sizeY;
-  G4double cont_sizeZ = 0.75 * box_sizeZ;
+  G4double cont_sizeX =     20.0  *mm;  // > voxel_sizeX
+  G4double cont_sizeY =     10.0  *mm;  // > voxel_pitchY*number_of_voxel_dimY
+  G4double cont_sizeZ =     10.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
+
+
 
   // Sensor
-  
   G4double voxel_sizeX =   30.0  *mm;
   G4double voxel_sizeY =     2.0  *mm;
   G4double voxel_sizeZ =     2.0  *mm;
@@ -83,8 +83,6 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double voxel_pitchZ =    3.0  *mm;
   G4int number_of_voxel_dimY  =   8;
   G4int number_of_voxel_dimZ  =   8;
-  
-
 
     // distances
     G4double distance_source_sca  = 100.0  *mm; // distance between scabox and origin(0,0,0)
@@ -165,19 +163,21 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
    */
 
 
+
+
   // -- scatter box
 
   // solid definition (size)
   G4Box* solidScabox =
     new G4Box("Scabox",                       // its name
-	      0.5*box_sizeX, 0.1*box_sizeY, 0.1*box_sizeZ); // its size
+	      0.5*box_sizeX, 0.5*box_sizeY, 0.5*box_sizeZ); // its size
 
   // logical volume definition (material)
   G4LogicalVolume* logicScabox =
     new G4LogicalVolume(solidScabox,          // its solid
-                        Lead,              // its material
-                        "Scabox");            // its nam
-  std::cout << "qzmtest" << box_sizeX*0.5 - module_sizeX*0.5 << std::endl;
+                        Air,              // its material
+                        "Scabox");            // its name
+
   new G4PVPlacement(0,                        // no rotation
                       G4ThreeVector(box_sizeX*0.5 - module_sizeX*0.5, 0, 0),
                       logicScabox,            // its logical volume
@@ -186,30 +186,6 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       false,                  // no boolean operation
                       0,                      // copy number
                       true);        // checking overlaps
-  // Control object
-
-  /*
-  // solid definition (size)
-  G4Box* solidContBox =
-      new G4Box("Contbox",
-                0.5*cont_sizeX,0.5*cont_sizeY,0.5*cont_sizeZ);
-
-  // logical volume definition (material)
-  G4LogicalVolume* logicContbox =
-    new G4LogicalVolume(solidContBox,          // its solid
-                        Lead,              // its material
-                        "Contbox");            // its name
-
-  new G4PVPlacement(0,                        // no rotation
-                      G4ThreeVector(0, 0, 0),
-                      logicContbox,            // its logical volume
-                      "Contbox",               // its name
-                      logicModule,            // its mother  volume
-                      false,                  // no boolean operation
-                      2,                      // copy number
-                      true);        // checking overlaps
-
-  */
 
   // -- absober box
 
@@ -234,6 +210,29 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       1,                      // copy number
                       true);        // checking overlaps
 
+
+    // Control volume
+    // solid definition (size)
+  G4Box* solidContBox =
+      new G4Box("Contbox",
+                0.5*cont_sizeX,0.5*cont_sizeY,0.5*cont_sizeZ);
+
+  // logical volume definition (material)
+  G4LogicalVolume* logicContbox =
+    new G4LogicalVolume(solidContBox,          // its solid
+                        Lead,              // its material
+                        "Contbox");            // its name
+
+  new G4PVPlacement(0,                        // no rotation
+                      G4ThreeVector(0, 0, 0),
+                      logicContbox,            // its logical volume
+                      "Contbox",               // its name
+                      logicModule,            // its mother  volume
+                      false,                  // no boolean operation
+                      2,                      // copy number
+                      true);        // checking overlaps
+
+
   // -- scatter voxel
 
   // solid definition (size)
@@ -246,28 +245,26 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
     new G4LogicalVolume(solidSensor,          // its solid
                         EJ200,                   // its material
                         "Sensor");            // its name
+    new G4PVPlacement(0,                    // no rotation
+                      G4ThreeVector(0,0,0), // location
+                    logicSensor,          // its logical volume
+                    "Sensor",             // its name
+                    logicAbsbox,            // its mother  volume
+                    false,                  // no boolean operation
+                    0,  // copy number
+                    true);        // checking overlaps
+
+    new G4PVPlacement(0,                    // no rotation
+                      G4ThreeVector(0,0,0), // location
+                        logicSensor,          // its logical volume
+                        "Sensor",             // its name
+                        logicAbsbox,            // its mother  volume
+                        false,                  // no boolean operation
+                        0,  // copy number
+                        true);        // checking overlaps
 
 
-  new G4PVPlacement(0,                     // no rotation
-                    G4ThreeVector(0,0,0), //location
-                      logicSensor,            // its logical volume
-                      "Sensor",               // its name
-                      logicScabox,              // its mother  volume
-                      false,                    // no boolean operation
-                      0,      // copy number
-                      true);                       // checking overlaps
-  new G4PVPlacement(0,                     // no rotation
-                    G4ThreeVector(0,0,0), //location
-                      logicSensor,            // its logical volume
-                      "Sensor",               // its name
-                      logicAbsbox,              // its mother  volume
-                      false,                    // no boolean operation
-                      0,      // copy number
-                      true);                       // checking overlaps
-
-
-
-  
+    /*
   // physical volume definition (position, relation, copy number)
   for (G4int i = 0; i < number_of_voxel_dimY ; i++) {
     for (G4int j = 0; j < number_of_voxel_dimZ ; j++) {
@@ -295,9 +292,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
     }
   }
-  
-
-
+    */
 
     //------------------------------------------------
     // Sensitive detectors
@@ -321,8 +316,6 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
     G4VisAttributes* simpleBoxVisAtt= new G4VisAttributes(G4Colour(0.0,1.0,1.0));
     simpleBoxVisAtt->SetVisibility(true);
     logicSensor->SetVisAttributes(simpleBoxVisAtt);
-    G4VisAttributes* red = new G4VisAttributes(G4Colour(1.0, 0.0, 0.0));
-    logicScabox->SetVisAttributes(red);
 
     return physWorld;
 }
@@ -357,15 +350,13 @@ void muDetectorConstruction::DefineMaterials(){
 
 	Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
 	EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
-  Lead = nistMan->FindOrBuildMaterial("G4_Pb");
+    Lead = nistMan->FindOrBuildMaterial("G4_Pb"); // Actually uranium
 
-    /*
 	GAGG = new G4Material("GAGG", density=6.63*g/cm3, 4); // [yy] GAGG scintillator (not used now)
 	GAGG -> AddElement(Gd,  3);
 	GAGG -> AddElement(Al,  2);
 	GAGG -> AddElement(Ga,  3);
 	GAGG -> AddElement(O , 12);
-    */
 
 	G4cout << *(G4Material::GetMaterialTable()) << G4endl;
 

@@ -24,7 +24,7 @@ eIn(0.0)
 {}
 
 
-muSensorHit::~muSensorHit()
+muSensorHit::~muSensorHit() 
 {}
 
 
@@ -42,7 +42,7 @@ muSensorHit::muSensorHit(const muSensorHit& right)
     pos         = right.pos;
     eDep 		= right.eDep;
     eIn       =right.eIn;
-
+    
 }
 
 
@@ -59,7 +59,7 @@ const muSensorHit& muSensorHit::operator=(const muSensorHit& right)
         pos         = right.pos;
         eDep 		= right.eDep;
         eIn       =right.eIn;
-
+        
     }
     return *this;
 }
@@ -108,8 +108,8 @@ void muSensorHit::Draw()
 void muSensorHit::Print()
 {
     G4cout << "Event Number: " << eventNO << G4endl; // [yy]
-    G4cout << "Copy Number: " << copyNO << G4endl;
-    G4cout << "TrackID: " << trackID << G4endl;
+    G4cout << "Copy Number: " << copyNO << G4endl; 
+    G4cout << "TrackID: " << trackID << G4endl; 
     G4cout << "PDG code: "<< codePDG << "  "
     << "charge: " << charge/eplus << G4endl;
     G4cout << "enregy: " << energy /MeV  << G4endl;
@@ -122,3 +122,6 @@ void muSensorHit::Print()
     G4cout << "time: "<< time/ns << G4endl;
     G4cout << "Energy deposit" << eDep/MeV << G4endl;
 }
+
+
+
