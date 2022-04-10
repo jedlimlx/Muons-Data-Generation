@@ -75,6 +75,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double cont_sizeZ = 0.75 * box_sizeZ;
 
   // Sensor
+  /*
   G4double voxel_sizeX =   30.0  *mm;
   G4double voxel_sizeY =     2.0  *mm;
   G4double voxel_sizeZ =     2.0  *mm;
@@ -82,6 +83,8 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double voxel_pitchZ =    3.0  *mm;
   G4int number_of_voxel_dimY  =   8;
   G4int number_of_voxel_dimZ  =   8;
+  */
+
 
     // distances
     G4double distance_source_sca  = 100.0  *mm; // distance between scabox and origin(0,0,0)
@@ -234,7 +237,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   // solid definition (size)
   solidSensor =
     new G4Box("Sensor",                       // its name
-	                    0.5*voxel_sizeX, 0.5*voxel_sizeY, 0.5*voxel_sizeZ); // its size
+	                    0.5*box_sizeX, 0.5*box_sizeY, 0.5*box_sizeZ); // its size
 
   // logical volume definition (material)
   logicSensor =
@@ -242,6 +245,27 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                         EJ200,                   // its material
                         "Sensor");            // its name
 
+
+  new G4PVPlacement(0,                     // no rotation
+                    G4ThreeVector(0,0,0), //location
+                      logicSensor,            // its logical volume
+                      "Sensor",               // its name
+                      logicScabox,              // its mother  volume
+                      false,                    // no boolean operation
+                      0,      // copy number
+                      true);                       // checking overlaps
+  new G4PVPlacement(0,                     // no rotation
+                    G4ThreeVector(0,0,0), //location
+                      logicSensor,            // its logical volume
+                      "Sensor",               // its name
+                      logicAbsbox,              // its mother  volume
+                      false,                    // no boolean operation
+                      0,      // copy number
+                      true);                       // checking overlaps
+
+
+
+  /*
   // physical volume definition (position, relation, copy number)
   for (G4int i = 0; i < number_of_voxel_dimY ; i++) {
     for (G4int j = 0; j < number_of_voxel_dimZ ; j++) {
@@ -269,6 +293,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
     }
   }
+  */
 
 
 
