@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muSensorSD.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorSD.cc \
+ /home/spongiforma/source/freemeson-simulation/source/src/muSensorSD.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muSensorSD.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muSensorSD.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VSensitiveDetector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/globals.hh \
@@ -363,13 +363,13 @@ CMakeFiles/mu.dir/src/muSensorSD.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4TouchableHistory.icc \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4CollectionNameVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VSDFilter.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muSensorHit.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muSensorHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4THitsCollection.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Allocator.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ThreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Track.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4SystemOfUnits.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicalConstants.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \
@@ -580,4 +580,4 @@ CMakeFiles/mu.dir/src/muSensorSD.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4DCofThisEvent.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VDigiCollection.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserEventInformation.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh
+ /home/spongiforma/source/freemeson-simulation/source/include/muAnalyzer.hh

@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spongiforma/source/copy/geant4-example_muon/source
+CMAKE_SOURCE_DIR = /home/spongiforma/source/freemeson-simulation/source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spongiforma/source/copy/geant4-example_muon/build
+CMAKE_BINARY_DIR = /home/spongiforma/source/freemeson-simulation/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/mu.dir/depend.make
@@ -70,172 +70,172 @@ include CMakeFiles/mu.dir/progress.make
 include CMakeFiles/mu.dir/flags.make
 
 CMakeFiles/mu.dir/mu.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/mu.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/mu.cc
+CMakeFiles/mu.dir/mu.cc.o: /home/spongiforma/source/freemeson-simulation/source/mu.cc
 CMakeFiles/mu.dir/mu.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mu.dir/mu.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/mu.cc.o -MF CMakeFiles/mu.dir/mu.cc.o.d -o CMakeFiles/mu.dir/mu.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/mu.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/mu.dir/mu.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/mu.cc.o -MF CMakeFiles/mu.dir/mu.cc.o.d -o CMakeFiles/mu.dir/mu.cc.o -c /home/spongiforma/source/freemeson-simulation/source/mu.cc
 
 CMakeFiles/mu.dir/mu.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/mu.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/mu.cc > CMakeFiles/mu.dir/mu.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/mu.cc > CMakeFiles/mu.dir/mu.cc.i
 
 CMakeFiles/mu.dir/mu.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/mu.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/mu.cc -o CMakeFiles/mu.dir/mu.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/mu.cc -o CMakeFiles/mu.dir/mu.cc.s
 
 CMakeFiles/mu.dir/src/muAnalyzer.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muAnalyzer.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muAnalyzer.cc
+CMakeFiles/mu.dir/src/muAnalyzer.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muAnalyzer.cc
 CMakeFiles/mu.dir/src/muAnalyzer.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mu.dir/src/muAnalyzer.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muAnalyzer.cc.o -MF CMakeFiles/mu.dir/src/muAnalyzer.cc.o.d -o CMakeFiles/mu.dir/src/muAnalyzer.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muAnalyzer.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/mu.dir/src/muAnalyzer.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muAnalyzer.cc.o -MF CMakeFiles/mu.dir/src/muAnalyzer.cc.o.d -o CMakeFiles/mu.dir/src/muAnalyzer.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muAnalyzer.cc
 
 CMakeFiles/mu.dir/src/muAnalyzer.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muAnalyzer.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muAnalyzer.cc > CMakeFiles/mu.dir/src/muAnalyzer.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muAnalyzer.cc > CMakeFiles/mu.dir/src/muAnalyzer.cc.i
 
 CMakeFiles/mu.dir/src/muAnalyzer.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muAnalyzer.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muAnalyzer.cc -o CMakeFiles/mu.dir/src/muAnalyzer.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muAnalyzer.cc -o CMakeFiles/mu.dir/src/muAnalyzer.cc.s
 
 CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muDetectorConstruction.cc
+CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muDetectorConstruction.cc
 CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o -MF CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o.d -o CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muDetectorConstruction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o -MF CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o.d -o CMakeFiles/mu.dir/src/muDetectorConstruction.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muDetectorConstruction.cc
 
 CMakeFiles/mu.dir/src/muDetectorConstruction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muDetectorConstruction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muDetectorConstruction.cc > CMakeFiles/mu.dir/src/muDetectorConstruction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muDetectorConstruction.cc > CMakeFiles/mu.dir/src/muDetectorConstruction.cc.i
 
 CMakeFiles/mu.dir/src/muDetectorConstruction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muDetectorConstruction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muDetectorConstruction.cc -o CMakeFiles/mu.dir/src/muDetectorConstruction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muDetectorConstruction.cc -o CMakeFiles/mu.dir/src/muDetectorConstruction.cc.s
 
 CMakeFiles/mu.dir/src/muEventAction.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muEventAction.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muEventAction.cc
+CMakeFiles/mu.dir/src/muEventAction.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muEventAction.cc
 CMakeFiles/mu.dir/src/muEventAction.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mu.dir/src/muEventAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muEventAction.cc.o -MF CMakeFiles/mu.dir/src/muEventAction.cc.o.d -o CMakeFiles/mu.dir/src/muEventAction.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muEventAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/mu.dir/src/muEventAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muEventAction.cc.o -MF CMakeFiles/mu.dir/src/muEventAction.cc.o.d -o CMakeFiles/mu.dir/src/muEventAction.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muEventAction.cc
 
 CMakeFiles/mu.dir/src/muEventAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muEventAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muEventAction.cc > CMakeFiles/mu.dir/src/muEventAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muEventAction.cc > CMakeFiles/mu.dir/src/muEventAction.cc.i
 
 CMakeFiles/mu.dir/src/muEventAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muEventAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muEventAction.cc -o CMakeFiles/mu.dir/src/muEventAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muEventAction.cc -o CMakeFiles/mu.dir/src/muEventAction.cc.s
 
 CMakeFiles/mu.dir/src/muParticleGun.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muParticleGun.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGun.cc
+CMakeFiles/mu.dir/src/muParticleGun.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muParticleGun.cc
 CMakeFiles/mu.dir/src/muParticleGun.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mu.dir/src/muParticleGun.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muParticleGun.cc.o -MF CMakeFiles/mu.dir/src/muParticleGun.cc.o.d -o CMakeFiles/mu.dir/src/muParticleGun.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGun.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/mu.dir/src/muParticleGun.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muParticleGun.cc.o -MF CMakeFiles/mu.dir/src/muParticleGun.cc.o.d -o CMakeFiles/mu.dir/src/muParticleGun.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muParticleGun.cc
 
 CMakeFiles/mu.dir/src/muParticleGun.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muParticleGun.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGun.cc > CMakeFiles/mu.dir/src/muParticleGun.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muParticleGun.cc > CMakeFiles/mu.dir/src/muParticleGun.cc.i
 
 CMakeFiles/mu.dir/src/muParticleGun.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muParticleGun.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGun.cc -o CMakeFiles/mu.dir/src/muParticleGun.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muParticleGun.cc -o CMakeFiles/mu.dir/src/muParticleGun.cc.s
 
 CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGunMessenger.cc
+CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muParticleGunMessenger.cc
 CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o -MF CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o.d -o CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGunMessenger.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o -MF CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o.d -o CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muParticleGunMessenger.cc
 
 CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGunMessenger.cc > CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muParticleGunMessenger.cc > CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.i
 
 CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muParticleGunMessenger.cc -o CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muParticleGunMessenger.cc -o CMakeFiles/mu.dir/src/muParticleGunMessenger.cc.s
 
 CMakeFiles/mu.dir/src/muPhysicsList.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muPhysicsList.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muPhysicsList.cc
+CMakeFiles/mu.dir/src/muPhysicsList.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muPhysicsList.cc
 CMakeFiles/mu.dir/src/muPhysicsList.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mu.dir/src/muPhysicsList.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muPhysicsList.cc.o -MF CMakeFiles/mu.dir/src/muPhysicsList.cc.o.d -o CMakeFiles/mu.dir/src/muPhysicsList.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muPhysicsList.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/mu.dir/src/muPhysicsList.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muPhysicsList.cc.o -MF CMakeFiles/mu.dir/src/muPhysicsList.cc.o.d -o CMakeFiles/mu.dir/src/muPhysicsList.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muPhysicsList.cc
 
 CMakeFiles/mu.dir/src/muPhysicsList.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muPhysicsList.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muPhysicsList.cc > CMakeFiles/mu.dir/src/muPhysicsList.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muPhysicsList.cc > CMakeFiles/mu.dir/src/muPhysicsList.cc.i
 
 CMakeFiles/mu.dir/src/muPhysicsList.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muPhysicsList.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muPhysicsList.cc -o CMakeFiles/mu.dir/src/muPhysicsList.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muPhysicsList.cc -o CMakeFiles/mu.dir/src/muPhysicsList.cc.s
 
 CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muPrimaryGeneratorAction.cc
+CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muPrimaryGeneratorAction.cc
 CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o -MF CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o.d -o CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muPrimaryGeneratorAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o -MF CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o.d -o CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muPrimaryGeneratorAction.cc
 
 CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muPrimaryGeneratorAction.cc > CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muPrimaryGeneratorAction.cc > CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.i
 
 CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muPrimaryGeneratorAction.cc -o CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muPrimaryGeneratorAction.cc -o CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.s
 
 CMakeFiles/mu.dir/src/muRunAction.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muRunAction.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunAction.cc
+CMakeFiles/mu.dir/src/muRunAction.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muRunAction.cc
 CMakeFiles/mu.dir/src/muRunAction.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mu.dir/src/muRunAction.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muRunAction.cc.o -MF CMakeFiles/mu.dir/src/muRunAction.cc.o.d -o CMakeFiles/mu.dir/src/muRunAction.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunAction.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/mu.dir/src/muRunAction.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muRunAction.cc.o -MF CMakeFiles/mu.dir/src/muRunAction.cc.o.d -o CMakeFiles/mu.dir/src/muRunAction.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muRunAction.cc
 
 CMakeFiles/mu.dir/src/muRunAction.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muRunAction.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunAction.cc > CMakeFiles/mu.dir/src/muRunAction.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muRunAction.cc > CMakeFiles/mu.dir/src/muRunAction.cc.i
 
 CMakeFiles/mu.dir/src/muRunAction.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muRunAction.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunAction.cc -o CMakeFiles/mu.dir/src/muRunAction.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muRunAction.cc -o CMakeFiles/mu.dir/src/muRunAction.cc.s
 
 CMakeFiles/mu.dir/src/muRunManager.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muRunManager.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunManager.cc
+CMakeFiles/mu.dir/src/muRunManager.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muRunManager.cc
 CMakeFiles/mu.dir/src/muRunManager.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mu.dir/src/muRunManager.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muRunManager.cc.o -MF CMakeFiles/mu.dir/src/muRunManager.cc.o.d -o CMakeFiles/mu.dir/src/muRunManager.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunManager.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/mu.dir/src/muRunManager.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muRunManager.cc.o -MF CMakeFiles/mu.dir/src/muRunManager.cc.o.d -o CMakeFiles/mu.dir/src/muRunManager.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muRunManager.cc
 
 CMakeFiles/mu.dir/src/muRunManager.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muRunManager.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunManager.cc > CMakeFiles/mu.dir/src/muRunManager.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muRunManager.cc > CMakeFiles/mu.dir/src/muRunManager.cc.i
 
 CMakeFiles/mu.dir/src/muRunManager.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muRunManager.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunManager.cc -o CMakeFiles/mu.dir/src/muRunManager.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muRunManager.cc -o CMakeFiles/mu.dir/src/muRunManager.cc.s
 
 CMakeFiles/mu.dir/src/muSensorHit.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muSensorHit.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorHit.cc
+CMakeFiles/mu.dir/src/muSensorHit.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muSensorHit.cc
 CMakeFiles/mu.dir/src/muSensorHit.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mu.dir/src/muSensorHit.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muSensorHit.cc.o -MF CMakeFiles/mu.dir/src/muSensorHit.cc.o.d -o CMakeFiles/mu.dir/src/muSensorHit.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorHit.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/mu.dir/src/muSensorHit.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muSensorHit.cc.o -MF CMakeFiles/mu.dir/src/muSensorHit.cc.o.d -o CMakeFiles/mu.dir/src/muSensorHit.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muSensorHit.cc
 
 CMakeFiles/mu.dir/src/muSensorHit.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muSensorHit.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorHit.cc > CMakeFiles/mu.dir/src/muSensorHit.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muSensorHit.cc > CMakeFiles/mu.dir/src/muSensorHit.cc.i
 
 CMakeFiles/mu.dir/src/muSensorHit.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muSensorHit.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorHit.cc -o CMakeFiles/mu.dir/src/muSensorHit.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muSensorHit.cc -o CMakeFiles/mu.dir/src/muSensorHit.cc.s
 
 CMakeFiles/mu.dir/src/muSensorSD.cc.o: CMakeFiles/mu.dir/flags.make
-CMakeFiles/mu.dir/src/muSensorSD.cc.o: /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorSD.cc
+CMakeFiles/mu.dir/src/muSensorSD.cc.o: /home/spongiforma/source/freemeson-simulation/source/src/muSensorSD.cc
 CMakeFiles/mu.dir/src/muSensorSD.cc.o: CMakeFiles/mu.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/mu.dir/src/muSensorSD.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muSensorSD.cc.o -MF CMakeFiles/mu.dir/src/muSensorSD.cc.o.d -o CMakeFiles/mu.dir/src/muSensorSD.cc.o -c /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorSD.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/mu.dir/src/muSensorSD.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/mu.dir/src/muSensorSD.cc.o -MF CMakeFiles/mu.dir/src/muSensorSD.cc.o.d -o CMakeFiles/mu.dir/src/muSensorSD.cc.o -c /home/spongiforma/source/freemeson-simulation/source/src/muSensorSD.cc
 
 CMakeFiles/mu.dir/src/muSensorSD.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/mu.dir/src/muSensorSD.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorSD.cc > CMakeFiles/mu.dir/src/muSensorSD.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/spongiforma/source/freemeson-simulation/source/src/muSensorSD.cc > CMakeFiles/mu.dir/src/muSensorSD.cc.i
 
 CMakeFiles/mu.dir/src/muSensorSD.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/mu.dir/src/muSensorSD.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorSD.cc -o CMakeFiles/mu.dir/src/muSensorSD.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/spongiforma/source/freemeson-simulation/source/src/muSensorSD.cc -o CMakeFiles/mu.dir/src/muSensorSD.cc.s
 
 # Object files for target mu
 mu_OBJECTS = \
@@ -329,7 +329,7 @@ mu: /home/spongiforma/downloads/Geant4-10.7.3-Linux/lib64/libG4global.so
 mu: /home/spongiforma/downloads/Geant4-10.7.3-Linux/lib64/libG4clhep.so
 mu: /home/spongiforma/downloads/Geant4-10.7.3-Linux/lib64/libG4ptl.so.0.0.2
 mu: CMakeFiles/mu.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable mu"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/spongiforma/source/freemeson-simulation/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable mu"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/mu.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -341,6 +341,6 @@ CMakeFiles/mu.dir/clean:
 .PHONY : CMakeFiles/mu.dir/clean
 
 CMakeFiles/mu.dir/depend:
-	cd /home/spongiforma/source/copy/geant4-example_muon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spongiforma/source/copy/geant4-example_muon/source /home/spongiforma/source/copy/geant4-example_muon/source /home/spongiforma/source/copy/geant4-example_muon/build /home/spongiforma/source/copy/geant4-example_muon/build /home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles/mu.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/spongiforma/source/freemeson-simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spongiforma/source/freemeson-simulation/source /home/spongiforma/source/freemeson-simulation/source /home/spongiforma/source/freemeson-simulation/build /home/spongiforma/source/freemeson-simulation/build /home/spongiforma/source/freemeson-simulation/build/CMakeFiles/mu.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/mu.dir/depend
 

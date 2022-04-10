@@ -1,8 +1,8 @@
 CMakeFiles/mu.dir/mu.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/mu.cc \
+ /home/spongiforma/source/freemeson-simulation/source/mu.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muDetectorConstruction.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muDetectorConstruction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4SystemOfUnits.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/CLHEP/Units/SystemOfUnits.h \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicalConstants.hh \
@@ -357,7 +357,7 @@ CMakeFiles/mu.dir/mu.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4LPhysicsFreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicsFreeVector.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Pow.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muPhysicsList.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muPhysicsList.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserPhysicsList.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/rundefs.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleDefinition.hh \
@@ -378,7 +378,7 @@ CMakeFiles/mu.dir/mu.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/geomwdefs.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Region.icc \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUPLSplitter.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muPrimaryGeneratorAction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muPrimaryGeneratorAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleGun.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VPrimaryGenerator.hh \
@@ -500,17 +500,17 @@ CMakeFiles/mu.dir/mu.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UItokenNum.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ApplicationState.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4GeneralParticleSourceData.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muRunAction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muRunAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UserRunAction.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muEventAction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muEventAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UserEventAction.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGun.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muParticleGun.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleGunMessenger.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGunMessenger.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muParticleGunMessenger.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UImessenger.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGun.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muRunManager.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muParticleGun.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muRunManager.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4RunManager.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4EventManager.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4StackManager.hh \

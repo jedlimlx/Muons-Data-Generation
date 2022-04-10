@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/spongiforma/source/copy/geant4-example_muon/source
+CMAKE_SOURCE_DIR = /home/spongiforma/source/freemeson-simulation/source
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/spongiforma/source/copy/geant4-example_muon/build
+CMAKE_BINARY_DIR = /home/spongiforma/source/freemeson-simulation/build
 
 # Utility rule file for MU.
 
@@ -81,6 +81,6 @@ CMakeFiles/MU.dir/clean:
 .PHONY : CMakeFiles/MU.dir/clean
 
 CMakeFiles/MU.dir/depend:
-	cd /home/spongiforma/source/copy/geant4-example_muon/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spongiforma/source/copy/geant4-example_muon/source /home/spongiforma/source/copy/geant4-example_muon/source /home/spongiforma/source/copy/geant4-example_muon/build /home/spongiforma/source/copy/geant4-example_muon/build /home/spongiforma/source/copy/geant4-example_muon/build/CMakeFiles/MU.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/spongiforma/source/freemeson-simulation/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/spongiforma/source/freemeson-simulation/source /home/spongiforma/source/freemeson-simulation/source /home/spongiforma/source/freemeson-simulation/build /home/spongiforma/source/freemeson-simulation/build /home/spongiforma/source/freemeson-simulation/build/CMakeFiles/MU.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/MU.dir/depend
 

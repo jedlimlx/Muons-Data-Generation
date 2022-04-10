@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/src/muPrimaryGeneratorAction.cc \
+ /home/spongiforma/source/freemeson-simulation/source/src/muPrimaryGeneratorAction.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muPrimaryGeneratorAction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muPrimaryGeneratorAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserPrimaryGeneratorAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleGun.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/globals.hh \
@@ -384,12 +384,12 @@ CMakeFiles/mu.dir/src/muPrimaryGeneratorAction.cc.o: \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ApplicationState.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4GeneralParticleSourceData.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/globals.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muParticleGun.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muParticleGun.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ParticleGunMessenger.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4PhysicalConstants.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4SystemOfUnits.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muDetectorConstruction.hh \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muAnalyzer.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muDetectorConstruction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muAnalyzer.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \
  /home/spongiforma/root/include/TTree.h \
  /home/spongiforma/root/include/Compression.h \

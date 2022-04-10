@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muRunAction.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/src/muRunAction.cc \
+ /home/spongiforma/source/freemeson-simulation/source/src/muRunAction.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muRunAction.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muRunAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4UserRunAction.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4GlobalConfig.hh \

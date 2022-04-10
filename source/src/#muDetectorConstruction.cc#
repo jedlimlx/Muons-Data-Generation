@@ -13,7 +13,7 @@
 #include "G4UniformMagField.hh"
 #include "G4SDManager.hh"
 #include "G4GeometryManager.hh"
-#include "G4PhysicalVolumeStore.hh"
+#include "G4PhysicalVolumetore.hh"
 #include "G4LogicalVolumeStore.hh"
 #include "G4SolidStore.hh"
 #include "G4UserLimits.hh"

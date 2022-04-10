@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muPhysicsList.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/src/muPhysicsList.cc \
+ /home/spongiforma/source/freemeson-simulation/source/src/muPhysicsList.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muPhysicsList.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muPhysicsList.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VUserPhysicsList.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ios.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4Types.hh \

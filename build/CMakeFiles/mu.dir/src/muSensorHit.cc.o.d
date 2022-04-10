@@ -1,7 +1,7 @@
 CMakeFiles/mu.dir/src/muSensorHit.cc.o: \
- /home/spongiforma/source/copy/geant4-example_muon/source/src/muSensorHit.cc \
+ /home/spongiforma/source/freemeson-simulation/source/src/muSensorHit.cc \
  /usr/include/stdc-predef.h \
- /home/spongiforma/source/copy/geant4-example_muon/source/include/muSensorHit.hh \
+ /home/spongiforma/source/freemeson-simulation/source/include/muSensorHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4VHit.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/globals.hh \
  /home/spongiforma/downloads/Geant4-10.7.3-Linux/include/Geant4/G4ios.hh \
