@@ -1,4 +1,3 @@
-
 #include "muParticleGun.hh"
 #include "muParticleGunMessenger.hh"
 #include "muDetectorConstruction.hh"
