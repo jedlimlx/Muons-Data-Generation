@@ -33,3 +33,5 @@ void muRunAction::EndOfRunAction(const G4Run* aRun)
     
 }
 
+//TODO change G4RunManager to G4MTRunManager
+//TODO make new class to initialise action

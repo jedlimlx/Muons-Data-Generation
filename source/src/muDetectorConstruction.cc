@@ -70,9 +70,9 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double box_sizeZ =     24.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
   // Control object size
-  G4double cont_sizeX = 30.0 * mm;
-  G4double cont_sizeY = 0.75 * box_sizeY;
-  G4double cont_sizeZ = 0.75 * box_sizeZ;
+  G4double cont_sizeX = 20 * mm;
+  G4double cont_sizeY = 10 * mm;
+  G4double cont_sizeZ = 10 * mm;
 
   // Sensor
   
@@ -188,7 +188,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
   // Control object
 
-  /*
+  
   // solid definition (size)
   G4Box* solidContBox =
       new G4Box("Contbox",
@@ -209,7 +209,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       2,                      // copy number
                       true);        // checking overlaps
 
-  */
+  
 
   // -- absober box
 

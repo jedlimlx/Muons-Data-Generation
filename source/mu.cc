@@ -42,6 +42,8 @@ int main(int argc,char** argv)
     
     // Construct the default run manager
     muRunManager * runManager = new muRunManager;
+
+    runManager->SetNumberOfThreads(12);
     
     // Construct the analyzer
     muAnalyzer* analyzer = new muAnalyzer();

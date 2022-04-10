@@ -34,7 +34,7 @@
 # ----------------------------------------------
 # run
 # ----------------------------------------------
-
+/run/numberOfThreads 12
 /run/initialize
 
 # Number of beams generated
