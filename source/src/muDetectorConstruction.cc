@@ -75,7 +75,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double cont_sizeZ = 0.75 * box_sizeZ;
 
   // Sensor
-  /*
+  
   G4double voxel_sizeX =   30.0  *mm;
   G4double voxel_sizeY =     2.0  *mm;
   G4double voxel_sizeZ =     2.0  *mm;
@@ -83,7 +83,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double voxel_pitchZ =    3.0  *mm;
   G4int number_of_voxel_dimY  =   8;
   G4int number_of_voxel_dimZ  =   8;
-  */
+  
 
 
     // distances
@@ -170,14 +170,14 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   // solid definition (size)
   G4Box* solidScabox =
     new G4Box("Scabox",                       // its name
-	      0.5*box_sizeX, 0.5*box_sizeY, 0.5*box_sizeZ); // its size
+	      0.5*box_sizeX, 0.1*box_sizeY, 0.1*box_sizeZ); // its size
 
   // logical volume definition (material)
   G4LogicalVolume* logicScabox =
     new G4LogicalVolume(solidScabox,          // its solid
-                        Air,              // its material
-                        "Scabox");            // its name
-
+                        Lead,              // its material
+                        "Scabox");            // its nam
+  std::cout << "qzmtest" << box_sizeX*0.5 - module_sizeX*0.5 << std::endl;
   new G4PVPlacement(0,                        // no rotation
                       G4ThreeVector(box_sizeX*0.5 - module_sizeX*0.5, 0, 0),
                       logicScabox,            // its logical volume
@@ -267,7 +267,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
 
 
 
-  /*
+  
   // physical volume definition (position, relation, copy number)
   for (G4int i = 0; i < number_of_voxel_dimY ; i++) {
     for (G4int j = 0; j < number_of_voxel_dimZ ; j++) {
@@ -295,7 +295,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
     }
   }
-  */
+  
 
 
 
@@ -321,6 +321,8 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
     G4VisAttributes* simpleBoxVisAtt= new G4VisAttributes(G4Colour(0.0,1.0,1.0));
     simpleBoxVisAtt->SetVisibility(true);
     logicSensor->SetVisAttributes(simpleBoxVisAtt);
+    G4VisAttributes* red = new G4VisAttributes(G4Colour(1.0, 0.0, 0.0));
+    logicScabox->SetVisAttributes(red);
 
     return physWorld;
 }
@@ -355,7 +357,7 @@ void muDetectorConstruction::DefineMaterials(){
 
 	Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
 	EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
-    Lead = new G4Material("Lead",82.,207.2 * g / mole,11.35 * g / cm3);
+  Lead = nistMan->FindOrBuildMaterial("G4_Pb");
 
     /*
 	GAGG = new G4Material("GAGG", density=6.63*g/cm3, 4); // [yy] GAGG scintillator (not used now)
