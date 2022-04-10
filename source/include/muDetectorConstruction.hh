@@ -6,6 +6,7 @@
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 #include "G4NistManager.hh" // [yy]
+#include "PerlinNoise.hh"
 
 class G4Box;
 class G4Orb;

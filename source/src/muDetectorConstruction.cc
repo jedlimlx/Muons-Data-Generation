@@ -24,6 +24,8 @@
 #include "G4RunManager.hh"
 #include "G4NistManager.hh" // [yy] for use of G4materials
 
+#include "PerlinNoise.hh"
+
 #include <iostream>
 
 muDetectorConstruction::muDetectorConstruction()
@@ -72,7 +74,6 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double cont_sizeX =     20.0  *mm;  // > voxel_sizeX
   G4double cont_sizeY =     10.0  *mm;  // > voxel_pitchY*number_of_voxel_dimY
   G4double cont_sizeZ =     10.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
-
 
 
   // Sensor
@@ -213,6 +214,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
 
     // Control volume
     // solid definition (size)
+    /*
   G4Box* solidContBox =
       new G4Box("Contbox",
                 0.5*cont_sizeX,0.5*cont_sizeY,0.5*cont_sizeZ);
@@ -231,6 +233,39 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       false,                  // no boolean operation
                       2,                      // copy number
                       true);        // checking overlaps
+    */
+
+  PerlinNoise pn;
+  double v;
+
+                // solid definition (size)
+  G4Box* solidContBox =
+    new G4Box("Contbox",
+              0.5 * mm,0.5*mm ,0.5 * mm);
+    // logical volume definition (material)
+  G4LogicalVolume* logicContbox =
+      new G4LogicalVolume(solidContBox,          // its solid
+                          Lead,              // its material
+                          "Contbox");            // its name
+
+  for (double i =0; i <= 1; i+= 0.05){
+      for (double j =0; j <= 1; j+= 0.1){
+          for (double k =0; k <= 1; k+= 0.1){
+              v = pn.noise(i,j,k);
+              if (v > 0.5) {
+                  std::cout << v << '\n';
+                  new G4PVPlacement(0,                        // no rotation
+                                    G4ThreeVector((i-0.5) * cont_sizeX, (j-0.5) * cont_sizeY, (k-0.5) * cont_sizeZ),
+                                    logicContbox,            // its logical volume
+                                    "ContboxAdd",               // its name
+                                    logicModule,            // its mother  volume
+                                    false,                  // no boolean operation
+                                    int(i*10) *2 + 3*int(j*10),                      // copy number
+                                    true);        // checking overlaps
+              }
+          }
+      }
+  }
 
 
   // -- scatter voxel
@@ -350,7 +385,8 @@ void muDetectorConstruction::DefineMaterials(){
 
 	Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
 	EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
-    Lead = nistMan->FindOrBuildMaterial("G4_Pb"); // Actually uranium
+    Lead = nistMan->FindOrBuildMaterial("G4_Au"); // Actually uranium
+
 
 	GAGG = new G4Material("GAGG", density=6.63*g/cm3, 4); // [yy] GAGG scintillator (not used now)
 	GAGG -> AddElement(Gd,  3);
