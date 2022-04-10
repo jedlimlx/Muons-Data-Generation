@@ -9,7 +9,7 @@
 // [yy]
 #include "globals.hh"
 #include "G4EmStandardPhysics.hh" // 電磁相互作用
-#include "G4LossTableManager.hh" 
+#include "G4LossTableManager.hh"
 #include "G4Decay.hh"
 #include "G4DecayTable.hh"
 #include "G4DecayWithSpin.hh"
@@ -68,22 +68,22 @@ void muPhysicsList::ConstructParticle()
     // In this method, static member functions should be called
     // for all particles which you want to use.
     // This ensures that objects of these particle types will be
-    // created in the program. 
-    
+    // created in the program.
+
     ConstructBosons();
     ConstructLeptons();
     ConstructMesons();
     ConstructBaryons();
 
   // ********************************************************************************
-  // Task 3.b - Exercise 7 
+  // Task 3.b - Exercise 7
   //   to activate polarisation
   //   -  uncomment the lines below
   //   -  change the decay process in  PhysicsList::ConstructDecay() to
   //      G4DecayWithSpin
   // ********************************************************************************
   //
-  
+
   G4DecayTable* MuonPlusDecayTable = new G4DecayTable();
   MuonPlusDecayTable -> Insert(new G4MuonDecayChannelWithSpin("mu+",0.986));
   MuonPlusDecayTable -> Insert(new G4MuonRadiativeDecayChannelWithSpin("mu+",0.014));
@@ -103,11 +103,11 @@ void muPhysicsList::ConstructBosons()
     // pseudo-particles
     G4Geantino::GeantinoDefinition();
     G4ChargedGeantino::ChargedGeantinoDefinition();
-    
+
     // gamma
     // G4Gamma::Gamma(); // [yy]
     G4Gamma::GammaDefinition();
-    
+
     // optical photon
     G4OpticalPhoton::OpticalPhotonDefinition();
 }
@@ -120,7 +120,7 @@ void muPhysicsList::ConstructLeptons()
     G4Positron::PositronDefinition();
     G4MuonPlus::MuonPlusDefinition();
     G4MuonMinus::MuonMinusDefinition();
-    
+
     G4NeutrinoE::NeutrinoEDefinition();
     G4AntiNeutrinoE::AntiNeutrinoEDefinition();
     G4NeutrinoMu::NeutrinoMuDefinition();
@@ -162,10 +162,10 @@ void muPhysicsList::ConstructProcess()
     ConstructEM();
     ConstructGeneral();
     ConstructDecay();  // [yy]
-    
+
 #ifdef OPT_ON
     ConstructOp();
-#endif 
+#endif
 }
 
 void muPhysicsList::ConstructEM()
@@ -176,40 +176,40 @@ void muPhysicsList::ConstructEM()
         G4ParticleDefinition* particle = theParticleIterator->value();
         G4ProcessManager* pmanager = particle->GetProcessManager();
         G4String particleName = particle->GetParticleName();
-        
+
         if (particleName == "gamma") {
-            // gamma         
+            // gamma
             pmanager->AddDiscreteProcess(new G4PhotoElectricEffect);
             pmanager->AddDiscreteProcess(new G4ComptonScattering);
             pmanager->AddDiscreteProcess(new G4GammaConversion);
-            
+
         } else if (particleName == "e-") {
             //electron
             pmanager->AddProcess(new G4eMultipleScattering,-1, 1,1);
             pmanager->AddProcess(new G4eIonisation,       -1, 2,2);
-            pmanager->AddProcess(new G4eBremsstrahlung,   -1, 3,3);      
-            
+            pmanager->AddProcess(new G4eBremsstrahlung,   -1, 3,3);
+
         } else if (particleName == "e+") {
             //positron
             pmanager->AddProcess(new G4eMultipleScattering, -1, 1,1);
             pmanager->AddProcess(new G4eIonisation,       -1, 2, 2);
             pmanager->AddProcess(new G4eBremsstrahlung,   -1, 3, 3);
             pmanager->AddProcess(new G4eplusAnnihilation,  0, -1, 4);
-            
-        } else if( particleName == "mu+" || 
+
+        } else if( particleName == "mu+" ||
                   particleName == "mu-"    ) {
-            //muon  
+            //muon
             pmanager->AddProcess(new G4MuMultipleScattering, -1, 1,1);
             pmanager->AddProcess(new G4MuIonisation,      -1, 2, 2);
             pmanager->AddProcess(new G4MuBremsstrahlung,  -1, 3, 3);
-            pmanager->AddProcess(new G4MuPairProduction,  -1, 4, 4);       
-            
+            pmanager->AddProcess(new G4MuPairProduction,  -1, 4, 4);
+
         } else if ((!particle->IsShortLived()) &&
-                   (particle->GetPDGCharge() != 0.0) && 
+                   (particle->GetPDGCharge() != 0.0) &&
                    (particle->GetParticleName() != "chargedgeantino")) {
             //all others charged particles except geantino
             pmanager->AddProcess(new G4hMultipleScattering,-1, 1,1);
-            pmanager->AddProcess(new G4hIonisation,       -1, 2,2); 
+            pmanager->AddProcess(new G4hIonisation,       -1, 2,2);
         }
     }
 }
@@ -227,7 +227,7 @@ void muPhysicsList::ConstructGeneral()
     while( (*theParticleIterator)() ){
         G4ParticleDefinition* particle = theParticleIterator->value();
         G4ProcessManager* pmanager = particle->GetProcessManager();
-        if (theDecayProcess->IsApplicable(*particle)) { 
+        if (theDecayProcess->IsApplicable(*particle)) {
             pmanager ->AddProcess(theDecayProcess);
             // set ordering for PostStepDoIt and AtRestDoIt
             pmanager ->SetProcessOrdering(theDecayProcess, idxPostStep);
@@ -249,7 +249,7 @@ void muPhysicsList::ConstructOp()
     G4Cerenkov* theCerenkovProcess = new G4Cerenkov("Cerenkov");
     theCerenkovProcess->SetMaxNumPhotonsPerStep(300);
     theCerenkovProcess->SetTrackSecondariesFirst(true);
-    
+
     auto *theParticleIterator = GetParticleIterator();
     theParticleIterator->reset();
     while( (*theParticleIterator)() ){
@@ -270,12 +270,12 @@ void muPhysicsList::ConstructOp()
 
   G4ParticleDefinition* muPlus = G4MuonPlus::MuonPlusDefinition();
   G4ParticleDefinition* muMinus= G4MuonMinus::MuonMinusDefinition();
- 
+
   G4ProcessManager* muPlusManager = muPlus->GetProcessManager();
-  muPlusManager->AddProcess(theDecayProcess);
-  muPlusManager->SetProcessOrdering(theDecayProcess, idxPostStep);
-  muPlusManager->SetProcessOrdering(theDecayProcess, idxAtRest);
- 
+  // muPlusManager->AddProcess(theDecayProcess);
+  // muPlusManager->SetProcessOrdering(theDecayProcess, idxPostStep);
+  // muPlusManager->SetProcessOrdering(theDecayProcess, idxAtRest);
+
   G4ProcessManager* muMinusManager = muMinus->GetProcessManager();
   muMinusManager->AddProcess(theDecayProcess);
   muMinusManager->SetProcessOrdering(theDecayProcess, idxPostStep);
@@ -288,15 +288,13 @@ void muPhysicsList::SetCuts()
         G4cout << "muPhysicsList::SetCuts:";
         G4cout << "CutLength : " << G4BestUnit(defaultCutValue,"Length") << G4endl;
     }
-    
+
     // set cut values for gamma at first and for e- second and next for e+,
     // because some processes for e+/e- need cut values for gamma
     //
     SetCutValue(defaultCutValue, "gamma");
     SetCutValue(defaultCutValue, "e-");
     SetCutValue(defaultCutValue, "e+");
-    
+
     if (verboseLevel>0) DumpCutValuesTable();
 }
-
-

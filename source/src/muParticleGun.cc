@@ -475,7 +475,7 @@ const G4ThreeVector& muParticleGun::PutTop(){
     return vPos;
 }
 const G4ThreeVector& muParticleGun::PutFlux(){
-    G4double radius = 20*cm;
+    G4double radius = 40*cm;
     G4double phi = RandFlat::shoot(0.0,twopi);
     G4double theta = RandFlat::shoot(0.0,pi);
     G4double posX =radius*sin(theta)*cos(phi);
