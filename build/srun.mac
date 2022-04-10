@@ -3,8 +3,8 @@
 # Settings
 # ----------------------------------------------
 
-/control/verbose 2
-/tracking/verbose 1
+/control/verbose 0
+/tracking/verbose 0
 /event/verbose 0
 /gps/verbose 0
 

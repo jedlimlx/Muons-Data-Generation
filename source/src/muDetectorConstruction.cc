@@ -188,6 +188,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
   // Control object
 
+  /*
   // solid definition (size)
   G4Box* solidContBox =
       new G4Box("Contbox",
@@ -208,6 +209,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       2,                      // copy number
                       true);        // checking overlaps
 
+  */
 
   // -- absober box
 
