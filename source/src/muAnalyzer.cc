@@ -24,7 +24,7 @@ void muAnalyzer::SetInit(G4bool isRootIn, TString filenameIn){
 }
 void muAnalyzer::Init(){
     
-    //if(isRoot == true){
+    if(isRoot == true){
         tree = new TTree("tree","mc output");
         tree->Branch("event",&event,"event/I");  // [yy] add
         tree->Branch("nHit",&nHit,"nHit/I");
@@ -37,13 +37,13 @@ void muAnalyzer::Init(){
         tree->Branch("TrackID",&trackID, "trackID/I");
         tree->Branch("copyNo",&copyNo, "copyNo/I");
         tree->Branch("particle",&particleID, "particle/I");
-    //} else {
+    } else {
         // ascii file
         //outFile.open(filename, std::ios::out);
         outFile.open("out.txt", std::ios::out); // [yy]
         outFile.setf( std::ios:: scientific, std::ios::floatfield );
         outFile << std::setprecision(8);
-    //}
+    }
 }
 
 void muAnalyzer::Fill(int buf0,                     //nHit [yy]
@@ -59,6 +59,7 @@ void muAnalyzer::Fill(int buf0,                     //nHit [yy]
                       std::vector<G4int> buf10   //particleID
 )
 {
+    std::lock_guard<std::mutex> guard(fileMutex);
     nHit       = buf0; // [yy]
     eventbuf   = buf1; // [yy]
     xbuf       = buf2;
@@ -70,8 +71,7 @@ void muAnalyzer::Fill(int buf0,                     //nHit [yy]
     trackIDbuf = buf8;
     copyNobuf  = buf9;
     particleIDbuf = buf10;
-    
-    //if (isRoot == true){
+    if (isRoot == true){
         for(int i=0;i<nHit;++i){
             event = eventbuf.at(i);
             x = xbuf.at(i);
@@ -86,8 +86,8 @@ void muAnalyzer::Fill(int buf0,                     //nHit [yy]
             tree->Fill();
         }
     
-    //} else {
-        //outFile << nHit << std::endl; //[yy] comment
+    } else {
+        // outFile << nHit << std::endl; //[yy] comment
         for(int i=0;i<nHit;++i){
             outFile << eventbuf.at(i) // [yy]
             << " "  << nHit  // [yy]
@@ -102,7 +102,7 @@ void muAnalyzer::Fill(int buf0,                     //nHit [yy]
             << " "  << particleIDbuf.at(i)
             << std::endl;
         }
-    //}
+    }
     
     eventbuf.clear();
     xbuf.clear();

@@ -12,6 +12,7 @@
 #include "muEventAction.hh"
 #include "muParticleGun.hh"
 #include "muParticleGunMessenger.hh"
+#include "muActionInitialization.hh"
 #include "muAnalyzer.hh"
 
 #include "muRunManager.hh"
@@ -47,7 +48,7 @@ int main(int argc,char** argv)
     
     // Construct the analyzer
     muAnalyzer* analyzer = new muAnalyzer();
-    analyzer->SetInit(true, "out.root");
+    analyzer->SetInit(false, "out.root");
     analyzer->Init();
     
     // Set mandatory initialization classes
@@ -62,14 +63,7 @@ int main(int argc,char** argv)
     
     // Set user action classes
     //G4VUserPrimaryGeneratorAction* gen_action = new muPrimaryGeneratorAction(detector); // [yy] for gps
-    G4VUserPrimaryGeneratorAction* gen_action = new muPrimaryGeneratorAction();
-    runManager->SetUserAction(gen_action);
-    
-    muRunAction* run_action = new muRunAction;
-    runManager->SetUserAction(run_action);
-    
-    muEventAction* event_action = new muEventAction(run_action);
-    runManager->SetUserAction(event_action);
+    runManager->SetUserInitialization(new muActionInitialization());
     
     //muSteppingAction* stepping_action = new muSteppingAction();
     //runManager->SetUserAction(stepping_action);

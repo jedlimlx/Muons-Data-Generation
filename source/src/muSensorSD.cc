@@ -57,7 +57,7 @@ void muSensorSD::Initialize(G4HCofThisEvent* HCE)
 
 G4bool muSensorSD::ProcessHits(G4Step* aStep,G4TouchableHistory*)
 {
-    
+    std::lock_guard<std::mutex> guard(sensorMutex);
     const G4Track * aTrack =  aStep->GetTrack();
     
     //if ( aTrack->GetDefinition()->GetPDGCharge() == 0.0) return false;
@@ -84,6 +84,7 @@ G4bool muSensorSD::ProcessHits(G4Step* aStep,G4TouchableHistory*)
     muSensorHit* newHit = new muSensorHit();
     G4double eIn = aStep->GetPreStepPoint()->GetKineticEnergy();
     newHit->Set(eventNO, copyNO, aTrack, eLoss, eIn);
+
     sensorCollection->insert( newHit );
     
     return true;

@@ -24,6 +24,7 @@ public:
 public:
 
     G4VPhysicalVolume* Construct();
+    virtual void ConstructSDandField();
 
     void UpdateGeometry();
 

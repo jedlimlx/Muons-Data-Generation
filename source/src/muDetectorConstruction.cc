@@ -21,7 +21,7 @@
 #include "G4Colour.hh"
 #include "G4SystemOfUnits.hh"
 #include "G4PhysicalConstants.hh"
-#include "G4RunManager.hh"
+#include "G4MTRunManager.hh"
 #include "G4NistManager.hh" // [yy] for use of G4materials
 
 #include <iostream>
@@ -295,22 +295,6 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
     }
   }
-  
-
-
-
-    //------------------------------------------------
-    // Sensitive detectors
-    //------------------------------------------------
-
-    G4SDManager* SDman = G4SDManager::GetSDMpointer();
-    muSensorSD* aSensorSD = (muSensorSD*)SDman->FindSensitiveDetector("mu/SensorSD");
-    if ( aSensorSD == 0){
-        aSensorSD = new muSensorSD("mu/SensorSD");
-        SDman->AddNewDetector( aSensorSD );
-    }
-    aSensorSD->SetAnalyzer(analyzer);
-    logicSensor->SetSensitiveDetector(aSensorSD);
 
     //------------------------------------------------
     // Visualization attributes
@@ -329,6 +313,17 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
 // End of Construct()
 //------------------------------------------------------------------------//
 
+void muDetectorConstruction::ConstructSDandField(){
+    //------------------------------------------------
+    // Sensitive detectors
+    //------------------------------------------------
+
+    G4SDManager* SDman = G4SDManager::GetSDMpointer();
+    muSensorSD* aSensorSD = new muSensorSD("mu/SensorSD");
+    SDman->AddNewDetector( aSensorSD );
+    aSensorSD->SetAnalyzer(analyzer);
+    SetSensitiveDetector("Sensor", aSensorSD);
+}
 
 ///////////////////////////////////////////////////////
 void muDetectorConstruction::DefineMaterials(){
@@ -373,7 +368,7 @@ void muDetectorConstruction::DefineMaterials(){
 
 void muDetectorConstruction::UpdateGeometry()
 {
-    G4RunManager::GetRunManager()->DefineWorldVolume(Construct());
+    G4MTRunManager::GetRunManager()->DefineWorldVolume(Construct());
 }
 
 void muDetectorConstruction::SetAnalyzer(muAnalyzer * analyzer_in)
