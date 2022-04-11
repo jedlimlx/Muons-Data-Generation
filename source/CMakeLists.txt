@@ -51,6 +51,8 @@ target_link_libraries(mu ${ROOT_LIBRARIES})
 #----------------------------------------------------------------------------
 #Compiler option
 set(CMAKE_INSTALL_PREFIX "..")
+set (CMAKE_CXX_STANDARD 17)
+
 #set(CMAKE_CXX_FLAGS "-std=c++14 -Wall")
 
 
