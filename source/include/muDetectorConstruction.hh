@@ -32,12 +32,14 @@ public:
 
     void SetAnalyzer(muAnalyzer*);
 
+    void SetVoxelFileName(TString);
 
 private:
 
     G4Box*             solidSensor;
     G4LogicalVolume*   logicSensor;
     G4VPhysicalVolume* physSensor;
+    TString filename;
 
     G4NistManager* nistMan; // [yy]
     G4Material* EJ200;  // [yy]   Eljen EJ200 (assumed as PVT Scintillator)

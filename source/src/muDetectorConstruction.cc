@@ -27,12 +27,12 @@
 #include "PerlinNoise.hh"
 
 #include <iostream>
+#include <string>
 
 muDetectorConstruction::muDetectorConstruction()
 :solidSensor(0),logicSensor(0),physSensor(0){
 
     DefineMaterials();
-
 }
 
 muDetectorConstruction::~muDetectorConstruction()
@@ -248,12 +248,15 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                           Lead,              // its material
                           "Contbox");            // its name
 
+  std::string voxel = "";
+  int x,y,z;
+  x=0;y=0;z=0;
   for (double i =0; i <= 1; i+= 0.05){
       for (double j =0; j <= 1; j+= 0.1){
           for (double k =0; k <= 1; k+= 0.1){
               v = pn.noise(i,j,k);
               if (v > 0.5) {
-                  std::cout << v << '\n';
+                  voxel += "1 ";
                   new G4PVPlacement(0,                        // no rotation
                                     G4ThreeVector((i-0.5) * cont_sizeX, (j-0.5) * cont_sizeY, (k-0.5) * cont_sizeZ),
                                     logicContbox,            // its logical volume
@@ -262,10 +265,23 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                                     false,                  // no boolean operation
                                     int(i*10) *2 + 3*int(j*10),                      // copy number
                                     true);        // checking overlaps
+              } else {
+                  voxel += "0 ";
               }
+              ++z;
           }
+          ++y;
       }
+      ++x;
   }
+
+    std::ofstream outFile;
+    outFile.open(filename + ".voxel", std::ios::out); // [yy]
+    outFile << voxel;
+    outFile.close();
+
+
+
 
 
   // -- scatter voxel
@@ -406,4 +422,7 @@ void muDetectorConstruction::UpdateGeometry()
 void muDetectorConstruction::SetAnalyzer(muAnalyzer * analyzer_in)
 {
     analyzer = analyzer_in;
+}
+void muDetectorConstruction::SetVoxelFileName(TString name){
+    filename = name;
 }
