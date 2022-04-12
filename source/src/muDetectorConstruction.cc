@@ -235,7 +235,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
                       true);        // checking overlaps
     */
 
-  PerlinNoise pn;
+  PerlinNoise pn(time(NULL));
   double v;
 
                 // solid definition (size)
@@ -255,7 +255,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
       for (double j =0; j <= 1; j+= 0.1){
           for (double k =0; k <= 1; k+= 0.1){
               v = pn.noise(i,j,k);
-              if (v > 0.5) {
+              if (v > 0.6) {
                   voxel += "1 ";
                   new G4PVPlacement(0,                        // no rotation
                                     G4ThreeVector((i-0.5) * cont_sizeX, (j-0.5) * cont_sizeY, (k-0.5) * cont_sizeZ),

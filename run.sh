@@ -7,7 +7,6 @@ do
     { for j in $(seq 1 $NTHREADS)
     do
         t=$(time ./mu run.mac out${i}_${j} > /dev/null 2>&1)
-        echo $i
-        echo $j
+        echo $i $j
     done }&
 done

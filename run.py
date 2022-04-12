@@ -8,7 +8,7 @@ N_threads = 12
 
 def run_threads(thread_name):
     for i in range(N // N_threads):
-        proc = subprocess.Popen("./build/mu " + "run.mac " + "out_" + str(thread_name) + "_" + str(i), shell=True, stdout=subprocess.DEVNULL)
+        proc = subprocess.Popen("./build/mu " + "build/run.mac " + "out_" + str(thread_name) + "_" + str(i), shell=True, stdout=subprocess.DEVNULL)
         proc.wait()
         print(thread_name, i)
 
