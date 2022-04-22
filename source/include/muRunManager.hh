@@ -2,10 +2,10 @@
 #ifndef muRunManager_h
 #define muRunMa nager_h 1
 
-#include "G4MTRunManager.hh"
+#include "G4RunManager.hh"
 
 
-class muRunManager : public G4MTRunManager {
+class muRunManager : public G4RunManager {
 public:
     muRunManager();
     

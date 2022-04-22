@@ -6,6 +6,7 @@
 #include "G4VUserDetectorConstruction.hh"
 #include "globals.hh"
 #include "G4NistManager.hh" // [yy]
+#include "PerlinNoise.hh"
 
 class G4Box;
 class G4Orb;
@@ -24,7 +25,6 @@ public:
 public:
 
     G4VPhysicalVolume* Construct();
-    virtual void ConstructSDandField();
 
     void UpdateGeometry();
 
@@ -32,12 +32,14 @@ public:
 
     void SetAnalyzer(muAnalyzer*);
 
+    void SetVoxelFileName(TString);
 
 private:
 
     G4Box*             solidSensor;
     G4LogicalVolume*   logicSensor;
     G4VPhysicalVolume* physSensor;
+    TString filename;
 
     G4NistManager* nistMan; // [yy]
     G4Material* EJ200;  // [yy]   Eljen EJ200 (assumed as PVT Scintillator)

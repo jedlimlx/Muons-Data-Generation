@@ -1,5 +1,4 @@
 
-#define G4MULTITHREADED 1
 #ifdef G4MULTITHREADED
 #include "G4MTRunManager.hh"
 #else
@@ -8,7 +7,7 @@
 
 #include "muRunManager.hh"
 
-muRunManager::muRunManager() : G4MTRunManager()
+muRunManager::muRunManager() : G4RunManager()
 {
     
 }

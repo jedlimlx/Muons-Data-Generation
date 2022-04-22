@@ -48,8 +48,6 @@ private:
     G4bool isRoot;
     std::ofstream outFile;
 
-    std::mutex fileMutex;
-
     G4int nHit;
     G4int event; // [yy]
     G4double x;

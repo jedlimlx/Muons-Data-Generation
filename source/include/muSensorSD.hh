@@ -39,7 +39,6 @@ private:
     G4double eThreshold;
     G4double tResolution;
     G4int event; // [yy]
-    std::mutex sensorMutex;
     
     static const G4String HCname;
     
