@@ -71,7 +71,7 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
   G4double box_sizeY =     24.0  *mm;  // > voxel_pitchY*number_of_voxel_dimY
   G4double box_sizeZ =     24.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
-  G4double cont_sizeX =     20.0  *mm;  // > voxel_sizeX
+  G4double cont_sizeX =     10.0  *mm;  // > voxel_sizeX
   G4double cont_sizeY =     10.0  *mm;  // > voxel_pitchY*number_of_voxel_dimY
   G4double cont_sizeZ =     10.0  *mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
@@ -237,48 +237,51 @@ G4VPhysicalVolume* muDetectorConstruction::Construct()
 
   PerlinNoise pn(time(NULL));
   double v;
+    const int RESOLUTION = 64;
 
                 // solid definition (size)
   G4Box* solidContBox =
     new G4Box("Contbox",
-              0.5 * mm,0.5*mm ,0.5 * mm);
+              cont_sizeX / (2 * RESOLUTION) * mm, cont_sizeY / (2 * RESOLUTION) * mm , cont_sizeZ / (2 * RESOLUTION) * mm);
     // logical volume definition (material)
   G4LogicalVolume* logicContbox =
       new G4LogicalVolume(solidContBox,          // its solid
                           Lead,              // its material
                           "Contbox");            // its name
 
-  std::string voxel = "";
-  int x,y,z;
-  x=0;y=0;z=0;
-  for (double i =0; i <= 1; i+= 0.05){
-      for (double j =0; j <= 1; j+= 0.1){
-          for (double k =0; k <= 1; k+= 0.1){
-              v = pn.noise(i,j,k);
-              if (v > 0.6) {
-                  voxel += "1 ";
-                  new G4PVPlacement(0,                        // no rotation
-                                    G4ThreeVector((i-0.5) * cont_sizeX, (j-0.5) * cont_sizeY, (k-0.5) * cont_sizeZ),
-                                    logicContbox,            // its logical volume
-                                    "ContboxAdd",               // its name
-                                    logicModule,            // its mother  volume
-                                    false,                  // no boolean operation
-                                    int(i*10) *2 + 3*int(j*10),                      // copy number
-                                    true);        // checking overlaps
-              } else {
-                  voxel += "0 ";
-              }
-              ++z;
-          }
-          ++y;
-      }
-      ++x;
+  std::ifstream infile;
+  infile.open(filename + ".voxel");
+
+  if (infile.is_open()){
+    double x,y,z;
+    x=0;y=0;z=0;
+    for (int i = 0; i < RESOLUTION; i++){
+        for (int j = 0; j < RESOLUTION; j++){
+            for (int k = 0; k < RESOLUTION; k++){
+              x = i / (double) RESOLUTION;
+              y = j / (double) RESOLUTION;
+              z = k / (double) RESOLUTION;
+                infile >> v;
+                if (v) {
+                    new G4PVPlacement(0,                        // no rotation
+                                      G4ThreeVector((x-0.5) * cont_sizeX, (y-0.5) * cont_sizeY, (z-0.5) * cont_sizeZ),
+                                      logicContbox,            // its logical volume
+                                      "ContboxAdd",               // its name
+                                      logicModule,            // its mother  volume
+                                      false,                  // no boolean operation
+                                      i * RESOLUTION * RESOLUTION + j * RESOLUTION + k,                      // copy number
+                                      false);        // not checking overlaps
+                } 
+            }
+        }
+        std::cout << i << std::endl;
+    }
+    
+  }else{
+    throw std::runtime_error("could not open file");
   }
 
-    std::ofstream outFile;
-    outFile.open(filename + ".voxel", std::ios::out); // [yy]
-    outFile << voxel;
-    outFile.close();
+  infile.close();
 
 
 

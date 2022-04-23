@@ -43,6 +43,9 @@ int main(int argc,char** argv)
         //sprintf(tmp[0],argv[2]);
         //ui = new G4UIExecutive(argc-1,argv);
         filename = argv[2];
+    } else if (argc ==2){
+        ui = new G4UIExecutive(argc - 1, argv);
+        filename = argv[1];
     }
 
     // Choose the Random engine
