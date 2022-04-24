@@ -36,7 +36,7 @@ def main():
     N = 1000
     N_threads = 6
     threads = []
-    for j in range(1):
+    for j in range(N):
         noise = PerlinNoise(seed = j)
         voxels = np.array([[[noise.noise(x / RESOLUTION, y / RESOLUTION, z / RESOLUTION) > 0.6 for x in range(RESOLUTION)] for y in range(RESOLUTION)] for z in range(RESOLUTION)])
         orientations = rotate_cube(voxels)
