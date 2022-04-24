@@ -47,6 +47,7 @@ def main():
         for th in threads:
             th.join()
         np.save("voxels/run_" + str(j) + ".npy", voxels)
+        print("Run", j)
 
 def fade(t):
     return t * t * t * (t * (t * 6 - 15) + 10)
