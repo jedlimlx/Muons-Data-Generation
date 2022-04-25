@@ -6,7 +6,7 @@ import pandas as pd
 
 
 def run_threads(run, i, voxels):
-    bins = np.arange(-12, 12 + 12/256,24/256)
+    bins = np.arange(-12, 12 + 12/128,24/128)
     np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ")
     proc = subprocess.Popen("./mu " + "run.mac " + "run_" + str(i), shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     proc.wait()
