@@ -3,10 +3,12 @@ import threading
 import numpy as np
 import pandas as pd
 
-
+RESOLUTION = 64
+N = 1000
+N_threads = 6
 
 def run_threads(run, i, voxels):
-    bins = np.arange(-12, 12 + 12/128,24/128)
+    bins = np.arange(-12, 12 + 12/RESOLUTION,24/RESOLUTION)
     np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ")
     proc = subprocess.Popen("./mu " + "run.mac " + "run_" + str(i), shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     proc.wait()
@@ -32,9 +34,6 @@ def rotate_cube(cuberay):
     return res
 
 def main():
-    RESOLUTION = 64
-    N = 1000
-    N_threads = 6
     threads = []
     for j in range(N):
         noise = PerlinNoise(seed = j)
