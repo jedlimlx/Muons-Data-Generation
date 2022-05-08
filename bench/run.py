@@ -2,15 +2,19 @@ import subprocess
 import threading
 import numpy as np
 import pandas as pd
+import os
+import sys
 
 RESOLUTION = 64
 N = 1000
 N_threads = 6
+FILE_PATH = sys.path[0]
 
 def run_threads(run, i, voxels):
     bins = np.arange(-12, 12 + 12/RESOLUTION,24/RESOLUTION)
     np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ")
-    proc = subprocess.Popen("./mu " + "run.mac " + "run_" + str(i), shell=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    args = ["mu", "run.mac", "run_" + str(i)]
+    proc = subprocess.Popen(args = [os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
     proc.wait()
     print(i)
     txt_df = pd.read_csv("run_" + str(i) + ".txt", delimiter=" ", header=None, 
