@@ -11,7 +11,6 @@ Detector and beam setup (Contains build instructions): https://github.com/MMhaid
 # Multiple Orientations
 run.py added to rotate object.
 Improved model performance on test dataset.
-|--------|---------|------|---|
 |Accuracy|Precision|Recall|AUC|
 |--------|---------|------|---|
 |0.92|0.91|0.74|0.97|
