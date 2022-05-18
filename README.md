@@ -2,7 +2,9 @@
 Geant4 simulation for generating training data for CNN-based image reconstruction.
 Objects are generated using 3D Perlin noise.
 
-This branch contains the latest code as we iterate on the work.
+This branch contains the latest simulation and results as we iterate on the work.
+
+The `initproposal` contains the simulation used to produce the results in the original proposal.
 
 Perlin noise code: https://github.com/sol-prog/Perlin_Noise
 
