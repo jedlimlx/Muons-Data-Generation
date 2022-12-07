@@ -1,4 +1,3 @@
-
 #include "muDetectorConstruction.hh"
 #include "muSensorSD.hh"
 #include "muAnalyzer.hh"
@@ -29,9 +28,7 @@
 #include <iostream>
 #include <string>
 
-muDetectorConstruction::muDetectorConstruction()
-        : solidSensor(0), logicSensor(0), physSensor(0) {
-
+muDetectorConstruction::muDetectorConstruction() : solidSensor(0), logicSensor(0), physSensor(0) {
     DefineMaterials();
 }
 
@@ -60,26 +57,26 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
     // --- Parameters for geometry ---
 
     // World
-    G4double world_sizeX = 100 * cm;
-    G4double world_sizeY = 100 * cm;
-    G4double world_sizeZ = 100 * cm;
+    G4double world_sizeX = 10 * 100 * cm;
+    G4double world_sizeY = 10 * 100 * cm;
+    G4double world_sizeZ = 10 * 100 * cm;
 
     // Scabox/Absbox
-    G4double box_sizeX = 30.0 * mm;  // > voxel_sizeX
-    G4double box_sizeY = 24.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
-    G4double box_sizeZ = 24.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
+    G4double box_sizeX = 30.0 * cm;  // > voxel_sizeX
+    G4double box_sizeY = 24.0 * cm;  // > voxel_pitchY*number_of_voxel_dimY
+    G4double box_sizeZ = 24.0 * cm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
-    G4double cont_sizeX = 10.0 * mm;  // > voxel_sizeX
-    G4double cont_sizeY = 10.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
-    G4double cont_sizeZ = 10.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
+    G4double cont_sizeX = 10.0 * cm;  // > voxel_sizeX
+    G4double cont_sizeY = 10.0 * cm;  // > voxel_pitchY*number_of_voxel_dimY
+    G4double cont_sizeZ = 10.0 * cm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
 
     // Sensor
-    G4double voxel_sizeX = 30.0 * mm;
-    G4double voxel_sizeY = 2.0 * mm;
-    G4double voxel_sizeZ = 2.0 * mm;
-    G4double voxel_pitchY = 3.0 * mm;
-    G4double voxel_pitchZ = 3.0 * mm;
+    G4double voxel_sizeX = 30.0 * cm;
+    G4double voxel_sizeY = 2.0 * cm;
+    G4double voxel_sizeZ = 2.0 * cm;
+    G4double voxel_pitchY = 3.0 * cm;
+    G4double voxel_pitchZ = 3.0 * cm;
     G4int number_of_voxel_dimY = 8;
     G4int number_of_voxel_dimZ = 8;
 
@@ -186,7 +183,7 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
                       0,                      // copy number
                       true);        // checking overlaps
 
-    // -- absober box
+    // -- absorber box
 
     // solid definition (size)
     G4Box *solidAbsbox =
@@ -242,6 +239,7 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
             new G4Box("Contbox",
                       cont_sizeX / (2 * RESOLUTION) * mm, cont_sizeY / (2 * RESOLUTION) * mm,
                       cont_sizeZ / (2 * RESOLUTION) * mm);
+
     // logical volume definition (material)
     G4LogicalVolume *logicContbox =
             new G4LogicalVolume(solidContBox,          // its solid
@@ -279,8 +277,8 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
             }
             std::cout << i << std::endl;
         }
-
     } else {
+        std::cout << filename << std::endl;
         throw std::runtime_error("could not open file");
     }
 
@@ -293,33 +291,21 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
     // -- scatter voxel
 
     // solid definition (size)
-    solidSensor =
-            new G4Box("Sensor",                       // its name
-                      0.5 * box_sizeX, 0.5 * box_sizeY, 0.5 * box_sizeZ); // its size
+    solidSensor = new G4Box("Sensor", 0.5 * box_sizeX, 0.5 * box_sizeY, 0.5 * box_sizeZ); // its size
 
     // logical volume definition (material)
-    logicSensor =
-            new G4LogicalVolume(solidSensor,          // its solid
-                                EJ200,                   // its material
-                                "Sensor");            // its name
-    new G4PVPlacement(0,                    // no rotation
-                      G4ThreeVector(0, 0, 0), // location
-                      logicSensor,          // its logical volume
-                      "Sensor",             // its name
-                      logicAbsbox,            // its mother  volume
-                      false,                  // no boolean operation
-                      0,  // copy number
-                      true);        // checking overlaps
+    // EJ200 is the material
+    logicSensor = new G4LogicalVolume(solidSensor, EJ200, "Sensor");
 
-    new G4PVPlacement(0,                    // no rotation
-                      G4ThreeVector(0, 0, 0), // location
-                      logicSensor,          // its logical volume
-                      "Sensor",             // its name
-                      logicAbsbox,            // its mother  volume
-                      false,                  // no boolean operation
-                      0,  // copy number
-                      true);        // checking overlaps
-
+    new G4PVPlacement(0,                       // no rotation
+                      G4ThreeVector(0, 0, 0),  // location
+                      logicSensor,             // its logical volume
+                      "Sensor",                // its name
+                      logicAbsbox,             // its mother  volume
+                      false,                   // no boolean operation
+                      0,                       // copy number
+                      true                     // checking overlaps
+    );
 
     /*
   // physical volume definition (position, relation, copy number)
@@ -390,25 +376,21 @@ void muDetectorConstruction::DefineMaterials() {
     nistMan->SetVerbose(0);
 
     // Define parameters
-
     G4String symbol, name;
     G4double a; // mass of a mole
     G4double z; // mean number of protons
     G4double density;
 
     // Define Elements
-
     G4Element *O = new G4Element("Oxygen", symbol = "O", z = 8., a = 16.00 * g / mole);
     G4Element *Al = new G4Element("Aluminium", symbol = "Al", z = 13., a = 26.98 * g / mole);
     G4Element *Gd = new G4Element("Gadolinium", "Gd", z = 64, a = 157.25 * g / mole); // [yy]
     G4Element *Ga = new G4Element("Gallium", "Ga", z = 31, a = 69.723 * g / mole); // [yy]
 
     // Define materials
-
     Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
     EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
     Lead = nistMan->FindOrBuildMaterial("G4_Au"); // Actually uranium
-
 
     GAGG = new G4Material("GAGG", density = 6.63 * g / cm3, 4); // [yy] GAGG scintillator (not used now)
     GAGG->AddElement(Gd, 3);

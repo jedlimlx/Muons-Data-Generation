@@ -6,41 +6,51 @@ import os
 import sys
 
 RESOLUTION = 64
-N = 1000
+N = 10000
 N_threads = 6
 FILE_PATH = sys.path[0]
 
+
 def run_threads(run, i, voxels):
-    bins = np.arange(-12, 12 + 12/RESOLUTION,24/RESOLUTION)
+    # Running the program
+    bins = np.arange(-12, 12 + 12/RESOLUTION, 24/RESOLUTION)
     np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ")
     args = ["mu", "run.mac", "run_" + str(i)]
-    proc = subprocess.Popen(args = [os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
+    proc = subprocess.Popen(args=[os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
     proc.wait()
     print(i)
-    txt_df = pd.read_csv("run_" + str(i) + ".txt", delimiter=" ", header=None, 
-                                 names=["event", "count", "x", "y", "z", "time", "eIn", "eDep", 
-                                          "trackID", "copyNo", "particleID"])
+
+    # Converting into map of number of muons
+    txt_df = pd.read_csv(
+        "run_" + str(i) + ".txt",
+        delimiter=" ", header=None,
+        names=["event", "count", "x", "y", "z", "time", "eIn", "eDep", "trackID", "copyNo", "particleID"]
+    )
+    txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
+
     txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150)][["y", "z", "count"]]
-    txt_df["y_cut"] = pd.cut(txt_df["y"], bins = bins, right = False)
-    txt_df["z_cut"] = pd.cut(txt_df["z"], bins = bins, right = False)
-    pt = pd.pivot_table(txt_df, columns = "y_cut", index = "z_cut", values="count", aggfunc="sum")
+    txt_df["y_cut"] = pd.cut(txt_df["y"], bins=bins, right=False)
+    txt_df["z_cut"] = pd.cut(txt_df["z"], bins=bins, right=False)
+
+    pt = pd.pivot_table(txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
     np.save("detections/" + str(run) + "_orient_" + str(i) + ".npy", pt.values)
 
 
 def rotate_cube(cuberay):
     res = []
     res.append(cuberay)
-    res.append(np.rot90(cuberay, 2, axes=(0,2)))
-    res.append(np.rot90(cuberay, axes=(0,2)))
-    res.append(np.rot90(cuberay, -1, axes=(0,2)))
-    res.append(np.rot90(cuberay, axes=(0,1)))
-    res.append(np.rot90(cuberay, -1, axes=(0,1)))
+    res.append(np.rot90(cuberay, 2, axes=(0, 2)))
+    res.append(np.rot90(cuberay, axes=(0, 2)))
+    res.append(np.rot90(cuberay, -1, axes=(0, 2)))
+    res.append(np.rot90(cuberay, axes=(0, 1)))
+    res.append(np.rot90(cuberay, -1, axes=(0, 1)))
     return res
+
 
 def main():
     threads = []
     for j in range(N):
-        noise = PerlinNoise(seed = j)
+        noise = PerlinNoise(seed=j)
         voxels = np.array([[[noise.noise(x / RESOLUTION, y / RESOLUTION, z / RESOLUTION) > 0.6 for x in range(RESOLUTION)] for y in range(RESOLUTION)] for z in range(RESOLUTION)])
         orientations = rotate_cube(voxels)
         for i in range(N_threads):
@@ -49,14 +59,18 @@ def main():
             threads.append(th)
         for th in threads:
             th.join()
+
         np.save("voxels/run_" + str(j) + ".npy", voxels)
         print("Run", j)
 
+
 def fade(t):
     return t * t * t * (t * (t * 6 - 15) + 10)
-    
+
+
 def lerp(t, a, b):
     return a + t * (b - a)
+
 
 def grad(ahash, x, y, z):
     # very screwed up bitwise operations
@@ -65,8 +79,8 @@ def grad(ahash, x, y, z):
     v = y if h < 4 else x if (h == 12 or h == 14) else z
     return (u if (h & 1) == 0 else -u) + (v if (h & 2) == 0 else -v)
 
-class PerlinNoise: # because the library has "undesired behaviour"
 
+class PerlinNoise: # because the library has "undesired behaviour"
     def __init__(self, seed=None):
         if seed is None:
             p = np.arange(256)
