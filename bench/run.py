@@ -6,6 +6,7 @@ import os
 import sys
 
 RESOLUTION = 64
+SENSOR_DIST = 200
 N = 10000
 N_threads = 6
 FILE_PATH = sys.path[0]
@@ -41,14 +42,31 @@ def run_threads(run, i, voxels):
             "particleID"
         ]
     )
-    txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
+    # txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
 
-    txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150)][["y", "z", "count"]]
+    txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150)][["y", "z", "px", "py", "pz", "count"]]
+
+    # Compute 1st plane
     txt_df["y_cut"] = pd.cut(txt_df["y"], bins=bins, right=False)
     txt_df["z_cut"] = pd.cut(txt_df["z"], bins=bins, right=False)
-
     pt = pd.pivot_table(txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
-    np.save("detections/" + str(run) + "_orient_" + str(i) + ".npy", pt.values)
+    np.save("detections/" + str(run) + "_orient_" + str(i) + "_1.npy", pt.values)
+
+    # Compute 2nd plane
+    t = SENSOR_DIST / txt_df["px"]
+    txt_df["y2"] = txt_df["y"] + txt_df["py"] * t
+    txt_df["z2"] = txt_df["z"] + txt_df["pz"] * t
+
+    min_y, max_y = np.min(txt_df["y"].values), np.max(txt_df["y"].values)
+    min_z, max_z = np.min(txt_df["z"].values), np.max(txt_df["z"].values)
+    txt_df = txt_df[
+        (min_y < txt_df["y2"]) & (max_y > txt_df["y2"]) & (min_z < txt_df["z2"]) & (max_z > txt_df["y2"])
+    ][["y2", "z2", "count"]]
+
+    txt_df["y2_cut"] = pd.cut(txt_df["y2"], bins=bins, right=False)
+    txt_df["z2_cut"] = pd.cut(txt_df["z2"], bins=bins, right=False)
+    pt = pd.pivot_table(txt_df, columns="y2_cut", index="z2_cut", values="count", aggfunc="sum")
+    np.save("detections/" + str(run) + "_orient_" + str(i) + "_2.npy", pt.values)
 
 
 def rotate_cube(cuberay):

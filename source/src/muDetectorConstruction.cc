@@ -83,8 +83,8 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
     G4int number_of_voxel_dimZ = 8;
 
     // distances
-    G4double distance_source_sca = scale * 10.0 * mm; // distance between scabox and origin(0,0,0)
-    G4double distance_sca_abs = scale * 8.0 * mm; // distance between absorber and scatter
+    G4double distance_source_sca = scale * 100.0 * mm; // distance between scabox and origin(0,0,0)
+    G4double distance_sca_abs = scale * 80.0 * mm; // distance between absorber and scatter
 
     // module
     G4double module_sizeX = box_sizeX + distance_sca_abs + box_sizeX;
