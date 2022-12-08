@@ -56,33 +56,35 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
 
     // --- Parameters for geometry ---
 
+    int scale = 1;
+
     // World
-    G4double world_sizeX = 10 * 100 * cm;
-    G4double world_sizeY = 10 * 100 * cm;
-    G4double world_sizeZ = 10 * 100 * cm;
+    G4double world_sizeX = scale * 100 * cm;
+    G4double world_sizeY = scale * 100 * cm;
+    G4double world_sizeZ = scale * 100 * cm;
 
     // Scabox/Absbox
-    G4double box_sizeX = 30.0 * cm;  // > voxel_sizeX
-    G4double box_sizeY = 24.0 * cm;  // > voxel_pitchY*number_of_voxel_dimY
-    G4double box_sizeZ = 24.0 * cm;  // > voxel_pitchZ*number_of_voxel_dimZ
+    G4double box_sizeX = scale * 30.0 * mm;  // > voxel_sizeX
+    G4double box_sizeY = scale * 24.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
+    G4double box_sizeZ = scale * 24.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
-    G4double cont_sizeX = 10.0 * cm;  // > voxel_sizeX
-    G4double cont_sizeY = 10.0 * cm;  // > voxel_pitchY*number_of_voxel_dimY
-    G4double cont_sizeZ = 10.0 * cm;  // > voxel_pitchZ*number_of_voxel_dimZ
+    G4double cont_sizeX = scale * 10.0 * mm;  // > voxel_sizeX
+    G4double cont_sizeY = scale * 10.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
+    G4double cont_sizeZ = scale * 10.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
 
     // Sensor
-    G4double voxel_sizeX = 30.0 * cm;
-    G4double voxel_sizeY = 2.0 * cm;
-    G4double voxel_sizeZ = 2.0 * cm;
-    G4double voxel_pitchY = 3.0 * cm;
-    G4double voxel_pitchZ = 3.0 * cm;
+    G4double voxel_sizeX = scale * 30.0 * mm;
+    G4double voxel_sizeY = scale * 2.0 * mm;
+    G4double voxel_sizeZ = scale * 2.0 * mm;
+    G4double voxel_pitchY = scale * 3.0 * mm;
+    G4double voxel_pitchZ = scale * 3.0 * mm;
     G4int number_of_voxel_dimY = 8;
     G4int number_of_voxel_dimZ = 8;
 
     // distances
-    G4double distance_source_sca = 100.0 * mm; // distance between scabox and origin(0,0,0)
-    G4double distance_sca_abs = 80.0 * mm; // distance between absorber and scatter
+    G4double distance_source_sca = scale * 10.0 * mm; // distance between scabox and origin(0,0,0)
+    G4double distance_sca_abs = scale * 8.0 * mm; // distance between absorber and scatter
 
     // module
     G4double module_sizeX = box_sizeX + distance_sca_abs + box_sizeX;
