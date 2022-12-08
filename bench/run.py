@@ -24,7 +24,22 @@ def run_threads(run, i, voxels):
     txt_df = pd.read_csv(
         "run_" + str(i) + ".txt",
         delimiter=" ", header=None,
-        names=["event", "count", "x", "y", "z", "time", "eIn", "eDep", "trackID", "copyNo", "particleID"]
+        names=[
+            "event",
+            "count",
+            "x",
+            "y",
+            "z",
+            "px",
+            "py",
+            "pz",
+            "time",
+            "eIn",
+            "eDep",
+            "trackID",
+            "copyNo",
+            "particleID"
+        ]
     )
     txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
 

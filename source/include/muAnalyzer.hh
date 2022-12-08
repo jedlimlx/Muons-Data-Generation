@@ -15,35 +15,44 @@
 #include "TString.h"
 
 
-class muAnalyzer
-{
+class muAnalyzer {
 public:
     muAnalyzer();
+
     ~muAnalyzer();
-    muAnalyzer(const muAnalyzer&);
-    
+
+    muAnalyzer(const muAnalyzer &);
+
     void SetInit(G4bool, TString);
-    
-    
-    TTree* getTree(){return tree;};
+
+
+    TTree *getTree() { return tree; };
+
     void Init();
-    void Fill(int buf0,                     //nHit [yy] modify
-              std::vector<G4int> buf1,   //event [yy] add
-              std::vector<G4double> buf2,   //x
-              std::vector<G4double> buf3,   //y
-              std::vector<G4double> buf4,   //z
-              std::vector<G4double> buf5,   //time
-              std::vector<G4double> buf6,   //eIn
-              std::vector<G4double> buf7,   //eDep
-              std::vector<G4int> buf8,   //TrackID
-              std::vector<G4int> buf9,   //copyNo
-              std::vector<G4int> buf10   //particleID
+
+    void Fill(int buf0,                      // nHit [yy] modify
+              std::vector <G4int> buf1,      // event [yy] add
+              std::vector <G4double> buf2,   // x
+              std::vector <G4double> buf3,   // y
+              std::vector <G4double> buf4,   // z
+              std::vector <G4double> buf5,   // time
+              std::vector <G4double> buf6,   // eIn
+              std::vector <G4double> buf7,   // eDep
+              std::vector <G4double> buf8,   // time
+              std::vector <G4double> buf9,   // eIn
+              std::vector <G4double> buf10,  // eDep
+              std::vector <G4int> buf11,     // TrackID
+              std::vector <G4int> buf12,     // copyNo
+              std::vector <G4int> buf13      // particleID
     );
+
     void Terminate();
+
     void SetFileName(TString);
+
 private:
-    
-    TTree* tree;
+
+    TTree *tree;
     TString filename;
     G4bool isRoot;
     std::ofstream outFile;
@@ -53,24 +62,30 @@ private:
     G4double x;
     G4double y;
     G4double z;
+    G4double px;
+    G4double py;
+    G4double pz;
     G4double time;
     G4double eIn;
     G4double eDep;
     G4int trackID;
     G4int copyNo;
     G4int particleID;
-    
-    std::vector<G4int> eventbuf; // [yy]
-    std::vector<G4double> xbuf;  // [yy]
-    std::vector<G4double> ybuf;  // [yy]
-    std::vector<G4double> zbuf;  // [yy]
-    std::vector<G4double> timebuf;  // [yy]
-    std::vector<G4double> eInbuf;   // [yy]
-    std::vector<G4double> eDepbuf;  // [yy]
-    std::vector<G4int> trackIDbuf;  // [yy]
-    std::vector<G4int> copyNobuf;   // [yy]
-    std::vector<G4int> particleIDbuf;  // [yy]
-    
+
+    std::vector <G4int> eventbuf; // [yy]
+    std::vector <G4double> xbuf;  // [yy]
+    std::vector <G4double> ybuf;  // [yy]
+    std::vector <G4double> zbuf;  // [yy]
+    std::vector <G4double> pxbuf;  // [yy]
+    std::vector <G4double> pybuf;  // [yy]
+    std::vector <G4double> pzbuf;  // [yy]
+    std::vector <G4double> timebuf;  // [yy]
+    std::vector <G4double> eInbuf;   // [yy]
+    std::vector <G4double> eDepbuf;  // [yy]
+    std::vector <G4int> trackIDbuf;  // [yy]
+    std::vector <G4int> copyNobuf;   // [yy]
+    std::vector <G4int> particleIDbuf;  // [yy]
+
 };
 
 
