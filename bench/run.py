@@ -100,7 +100,7 @@ def main():
 
         lst = [1, 2, 3, 4]
         random.shuffle(lst)
-        for i in lst:
+        for i in lst[:random.randint(1, len(lst))]:
             voxels = generate_voxels(i, voxels)
 
         orientations = rotate_cube(voxels)
