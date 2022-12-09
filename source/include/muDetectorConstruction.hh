@@ -44,9 +44,12 @@ private:
     G4NistManager* nistMan; // [yy]
     G4Material* EJ200;  // [yy]   Eljen EJ200 (assumed as PVT Scintillator)
     G4Material* Air;    // [yy]
-    G4Material* Gold;    // [yy]
-    G4Material* Lead;    // [yy]
     G4Material* Iron;    // [yy]
+    G4Material* Nickel;    // [yy]
+    G4Material* Tin;    // [yy]
+    G4Material* Silver;    // [yy]
+    G4Material* Lead;    // [yy]
+    G4Material* Gold;    // [yy]
     G4Material* Uranium;    // [yy]
     G4Material* GAGG;   // [yy]
 

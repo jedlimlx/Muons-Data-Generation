@@ -244,10 +244,13 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
 
     // logical volume definition (material)
     std::vector<G4LogicalVolume*> logicContboxes;
-    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Gold, "Contbox1"));
-    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Lead, "Contbox2"));
-    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Iron, "Contbox3"));
-    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Uranium, "Contbox4"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Iron, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Nickel, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Tin, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Silver, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Lead, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Gold, "Contbox"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Uranium, "Contbox"));
 
     std::ifstream infile;
     infile.open(filename + ".voxel");
@@ -393,9 +396,12 @@ void muDetectorConstruction::DefineMaterials() {
     // Define materials
     Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
     EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
-    Gold = nistMan->FindOrBuildMaterial("G4_Au"); // Gold
-    Lead = nistMan->FindOrBuildMaterial("G4_Pb"); // Lead
     Iron = nistMan->FindOrBuildMaterial("G4_Fe"); // Iron
+    Nickel = nistMan->FindOrBuildMaterial("G4_Ni"); // Nickel
+    Tin = nistMan->FindOrBuildMaterial("G4_Sn"); // Tin
+    Silver = nistMan->FindOrBuildMaterial("G4_Ag"); // Silver
+    Lead = nistMan->FindOrBuildMaterial("G4_Pb"); // Lead
+    Gold = nistMan->FindOrBuildMaterial("G4_Au"); // Gold
     Uranium = nistMan->FindOrBuildMaterial("G4_U"); // Uranium
 
 

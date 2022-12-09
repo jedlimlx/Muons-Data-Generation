@@ -6,6 +6,7 @@ import pandas as pd
 
 import os
 import sys
+import tqdm
 
 RESOLUTION = 64
 SENSOR_DIST = 200
@@ -21,7 +22,7 @@ def run_threads(run, i, voxels):
     args = ["mu", "run.mac", "run_" + str(i)]
     proc = subprocess.Popen(args=[os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
     proc.wait()
-    print(i)
+    # print(i)
 
     # Converting into map of number of muons
     txt_df = pd.read_csv(
@@ -95,14 +96,19 @@ def generate_voxels(value, voxels):
 
 def main():
     threads = []
-    for j in range(N):
+    for j in tqdm.trange(N):
         voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
 
-        lst = [1, 2, 3, 4]
+        # Materials (Fe, Ni, Sn, Ag, Pb, Au, U)
+        lst = list(range(1, 8))
+        radiation_lengths = [1.757, 1.424, 1.206, 0.8543, 0.5612, 0.3344, 0.3166]
+
+        # Converting to voxels
         random.shuffle(lst)
-        for i in lst[:random.randint(1, len(lst))]:
+        for i in lst[:random.randint(1, 3)]:
             voxels = generate_voxels(i, voxels)
 
+        # Running simulation
         orientations = rotate_cube(voxels)
         for i in range(N_threads):
             th = threading.Thread(target=run_threads, args=(j, i, orientations[i]))
@@ -113,7 +119,7 @@ def main():
             th.join()
 
         np.save("voxels/run_" + str(j) + ".npy", voxels)
-        print("Run", j)
+        # print("Run", j)
 
 
 def fade(t):
