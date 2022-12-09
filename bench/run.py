@@ -1,7 +1,9 @@
 import subprocess
 import threading
+import random
 import numpy as np
 import pandas as pd
+
 import os
 import sys
 
@@ -15,7 +17,7 @@ FILE_PATH = sys.path[0]
 def run_threads(run, i, voxels):
     # Running the program
     bins = np.arange(-12, 12 + 12/RESOLUTION, 24/RESOLUTION)
-    np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ")
+    np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ", fmt="%1d")
     args = ["mu", "run.mac", "run_" + str(i)]
     proc = subprocess.Popen(args=[os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
     proc.wait()
@@ -80,16 +82,33 @@ def rotate_cube(cuberay):
     return res
 
 
+def generate_voxels(value, voxels):
+    noise = PerlinNoise()
+    return np.array([[[
+        value if noise.noise(
+            x / RESOLUTION,
+            y / RESOLUTION,
+            z / RESOLUTION
+        ) > 0.6 else voxels[x, y, z] for x in range(RESOLUTION)
+    ] for y in range(RESOLUTION)] for z in range(RESOLUTION)])
+
+
 def main():
     threads = []
     for j in range(N):
-        noise = PerlinNoise(seed=j)
-        voxels = np.array([[[noise.noise(x / RESOLUTION, y / RESOLUTION, z / RESOLUTION) > 0.6 for x in range(RESOLUTION)] for y in range(RESOLUTION)] for z in range(RESOLUTION)])
+        voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
+
+        lst = [1, 2, 3, 4]
+        random.shuffle(lst)
+        for i in lst:
+            voxels = generate_voxels(i, voxels)
+
         orientations = rotate_cube(voxels)
         for i in range(N_threads):
             th = threading.Thread(target=run_threads, args=(j, i, orientations[i]))
             th.start()
             threads.append(th)
+
         for th in threads:
             th.join()
 

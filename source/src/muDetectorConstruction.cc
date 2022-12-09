@@ -219,7 +219,7 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
   // logical volume definition (material)
   G4LogicalVolume* logicContbox =
     new G4LogicalVolume(solidContBox,          // its solid
-                        Lead,              // its material
+                        Gold,              // its material
                         "Contbox");            // its name
 
   new G4PVPlacement(0,                        // no rotation
@@ -233,7 +233,7 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
     */
 
     PerlinNoise pn(time(NULL));
-    double v;
+    int v;
     const int RESOLUTION = 64;
 
     // solid definition (size)
@@ -243,10 +243,11 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
                       cont_sizeZ / (2 * RESOLUTION) * mm);
 
     // logical volume definition (material)
-    G4LogicalVolume *logicContbox =
-            new G4LogicalVolume(solidContBox,          // its solid
-                                Lead,              // its material
-                                "Contbox");            // its name
+    std::vector<G4LogicalVolume*> logicContboxes;
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Gold, "Contbox1"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Lead, "Contbox2"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Iron, "Contbox3"));
+    logicContboxes.push_back(new G4LogicalVolume(solidContBox, Uranium, "Contbox4"));
 
     std::ifstream infile;
     infile.open(filename + ".voxel");
@@ -263,11 +264,11 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
                     y = j / (double) RESOLUTION;
                     z = k / (double) RESOLUTION;
                     infile >> v;
-                    if (v) {
+                    if (v != 0) {
                         new G4PVPlacement(0,                        // no rotation
                                           G4ThreeVector((x - 0.5) * cont_sizeX, (y - 0.5) * cont_sizeY,
                                                         (z - 0.5) * cont_sizeZ),
-                                          logicContbox,            // its logical volume
+                                          logicContboxes.at(v - 1),            // its logical volume
                                           "ContboxAdd",               // its name
                                           logicModule,            // its mother  volume
                                           false,                  // no boolean operation
@@ -392,7 +393,11 @@ void muDetectorConstruction::DefineMaterials() {
     // Define materials
     Air = nistMan->FindOrBuildMaterial("G4_AIR");  // [yy] Air
     EJ200 = nistMan->FindOrBuildMaterial("G4_PLASTIC_SC_VINYLTOLUENE"); // [yy] Eljen, EJ200
-    Lead = nistMan->FindOrBuildMaterial("G4_Au"); // Actually uranium
+    Gold = nistMan->FindOrBuildMaterial("G4_Au"); // Gold
+    Lead = nistMan->FindOrBuildMaterial("G4_Pb"); // Lead
+    Iron = nistMan->FindOrBuildMaterial("G4_Fe"); // Iron
+    Uranium = nistMan->FindOrBuildMaterial("G4_U"); // Uranium
+
 
     GAGG = new G4Material("GAGG", density = 6.63 * g / cm3, 4); // [yy] GAGG scintillator (not used now)
     GAGG->AddElement(Gd, 3);
