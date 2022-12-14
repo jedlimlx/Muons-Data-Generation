@@ -56,21 +56,21 @@ G4VPhysicalVolume *muDetectorConstruction::Construct() {
 
     // --- Parameters for geometry ---
 
-    int scale = 1;
+    int scale = 2;
 
     // World
     G4double world_sizeX = scale * 100 * cm;
-    G4double world_sizeY = scale * 100 * cm;
-    G4double world_sizeZ = scale * 100 * cm;
+    G4double world_sizeY = scale * 50 * cm;
+    G4double world_sizeZ = scale * 50 * cm;
 
     // Scabox/Absbox
     G4double box_sizeX = scale * 30.0 * mm;  // > voxel_sizeX
     G4double box_sizeY = scale * 24.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
     G4double box_sizeZ = scale * 24.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
-    G4double cont_sizeX = scale * 10.0 * mm;  // > voxel_sizeX
-    G4double cont_sizeY = scale * 10.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
-    G4double cont_sizeZ = scale * 10.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
+    G4double cont_sizeX = scale * 15.0 * mm;  // > voxel_sizeX
+    G4double cont_sizeY = scale * 15.0 * mm;  // > voxel_pitchY*number_of_voxel_dimY
+    G4double cont_sizeZ = scale * 15.0 * mm;  // > voxel_pitchZ*number_of_voxel_dimZ
 
 
     // Sensor

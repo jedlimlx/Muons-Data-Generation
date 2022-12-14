@@ -9,7 +9,8 @@ import sys
 import tqdm
 
 RESOLUTION = 64
-SENSOR_DIST = 200
+SCALE = 2
+SENSOR_DIST = 10
 N = 10000
 N_threads = 6
 FILE_PATH = sys.path[0]
@@ -17,7 +18,7 @@ FILE_PATH = sys.path[0]
 
 def run_threads(run, i, voxels):
     # Running the program
-    bins = np.arange(-12, 12 + 12/RESOLUTION, 24/RESOLUTION)
+    bins = np.arange(-12*SCALE, 12*SCALE + 12*SCALE/RESOLUTION, 24*SCALE/RESOLUTION)
     np.savetxt("run_" + str(i) + ".voxel", voxels.flatten(), delimiter=" ", fmt="%1d")
     args = ["mu", "run.mac", "run_" + str(i)]
     proc = subprocess.Popen(args=[os.path.join(FILE_PATH, "mu"), "run.mac", "run_" + str(i)], stdout=subprocess.DEVNULL)
@@ -45,31 +46,33 @@ def run_threads(run, i, voxels):
             "particleID"
         ]
     )
-    # txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
+    txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
 
-    txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150)][["y", "z", "px", "py", "pz", "count"]]
+    txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150*SCALE)][["y", "z", "px", "py", "pz", "count"]]
 
     # Compute 1st plane
     txt_df["y_cut"] = pd.cut(txt_df["y"], bins=bins, right=False)
     txt_df["z_cut"] = pd.cut(txt_df["z"], bins=bins, right=False)
     pt = pd.pivot_table(txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
-    np.save("detections/" + str(run) + "_orient_" + str(i) + "_1.npy", pt.values)
+    np.save("detections/" + str(run) + "_orient_" + str(i) + "_0.npy", pt.values)
 
-    # Compute 2nd plane
-    t = SENSOR_DIST / txt_df["px"]
-    txt_df["y2"] = txt_df["y"] + txt_df["py"] * t
-    txt_df["z2"] = txt_df["z"] + txt_df["pz"] * t
+    # Compute ith plane
+    for j in range(1, 20):
+        print(j)
+        t = SENSOR_DIST * j / txt_df["px"]
+        txt_df["y2"] = txt_df["y"] + txt_df["py"] * t
+        txt_df["z2"] = txt_df["z"] + txt_df["pz"] * t
 
-    min_y, max_y = np.min(txt_df["y"].values), np.max(txt_df["y"].values)
-    min_z, max_z = np.min(txt_df["z"].values), np.max(txt_df["z"].values)
-    txt_df = txt_df[
-        (min_y < txt_df["y2"]) & (max_y > txt_df["y2"]) & (min_z < txt_df["z2"]) & (max_z > txt_df["y2"])
-    ][["y2", "z2", "count"]]
+        min_y, max_y = np.min(txt_df["y"].values), np.max(txt_df["y"].values)
+        min_z, max_z = np.min(txt_df["z"].values), np.max(txt_df["z"].values)
+        txt_df_2 = txt_df[
+            (min_y < txt_df["y2"]) & (max_y > txt_df["y2"]) & (min_z < txt_df["z2"]) & (max_z > txt_df["y2"])
+        ][["y2", "z2", "count"]]
 
-    txt_df["y2_cut"] = pd.cut(txt_df["y2"], bins=bins, right=False)
-    txt_df["z2_cut"] = pd.cut(txt_df["z2"], bins=bins, right=False)
-    pt = pd.pivot_table(txt_df, columns="y2_cut", index="z2_cut", values="count", aggfunc="sum")
-    np.save("detections/" + str(run) + "_orient_" + str(i) + "_2.npy", pt.values)
+        txt_df_2["y2_cut"] = pd.cut(txt_df_2["y2"], bins=bins, right=False)
+        txt_df_2["z2_cut"] = pd.cut(txt_df_2["z2"], bins=bins, right=False)
+        pt = pd.pivot_table(txt_df_2, columns="y2_cut", index="z2_cut", values="count", aggfunc="sum")
+        np.save("detections/" + str(run) + "_orient_" + str(i) + f"_{j}.npy", pt.values)
 
 
 def rotate_cube(cuberay):
