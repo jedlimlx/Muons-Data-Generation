@@ -38,6 +38,12 @@ def run_threads(run, i, voxels):
             "px",
             "py",
             "pz",
+            "ver_x",
+            "ver_y",
+            "ver_z",
+            "ver_px",
+            "ver_py",
+            "ver_pz",
             "time",
             "eIn",
             "eDep",
@@ -48,31 +54,57 @@ def run_threads(run, i, voxels):
     )
     txt_df.to_csv("raw_detections/run_" + str(run) + "_orient_" + str(i) + ".csv")
 
-    txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150*SCALE)][["y", "z", "px", "py", "pz", "count"]]
+    # Calculating output detector planes
+    output_txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150*SCALE)][["y", "z", "px", "py", "pz", "count"]]
 
     # Compute 1st plane
-    txt_df["y_cut"] = pd.cut(txt_df["y"], bins=bins, right=False)
-    txt_df["z_cut"] = pd.cut(txt_df["z"], bins=bins, right=False)
-    pt = pd.pivot_table(txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
+    output_txt_df["y_cut"] = pd.cut(output_txt_df["y"], bins=bins, right=False)
+    output_txt_df["z_cut"] = pd.cut(output_txt_df["z"], bins=bins, right=False)
+    pt = pd.pivot_table(output_txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
     np.save("detections/" + str(run) + "_orient_" + str(i) + "_0.npy", pt.values)
 
     # Compute ith plane
     for j in range(1, 20):
-        print(j)
         t = SENSOR_DIST * j / txt_df["px"]
-        txt_df["y2"] = txt_df["y"] + txt_df["py"] * t
-        txt_df["z2"] = txt_df["z"] + txt_df["pz"] * t
+        output_txt_df["y2"] = output_txt_df["y"] + output_txt_df["py"] * t
+        output_txt_df["z2"] = output_txt_df["z"] + output_txt_df["pz"] * t
 
-        min_y, max_y = np.min(txt_df["y"].values), np.max(txt_df["y"].values)
-        min_z, max_z = np.min(txt_df["z"].values), np.max(txt_df["z"].values)
-        txt_df_2 = txt_df[
-            (min_y < txt_df["y2"]) & (max_y > txt_df["y2"]) & (min_z < txt_df["z2"]) & (max_z > txt_df["y2"])
+        min_y, max_y = np.min(output_txt_df["y"].values), np.max(output_txt_df["y"].values)
+        min_z, max_z = np.min(output_txt_df["z"].values), np.max(output_txt_df["z"].values)
+        txt_df_2 = output_txt_df[
+            (min_y < output_txt_df["y2"]) & (max_y > output_txt_df["y2"]) & (min_z < output_txt_df["z2"]) & (max_z > output_txt_df["y2"])
         ][["y2", "z2", "count"]]
 
         txt_df_2["y2_cut"] = pd.cut(txt_df_2["y2"], bins=bins, right=False)
         txt_df_2["z2_cut"] = pd.cut(txt_df_2["z2"], bins=bins, right=False)
         pt = pd.pivot_table(txt_df_2, columns="y2_cut", index="z2_cut", values="count", aggfunc="sum")
         np.save("detections/" + str(run) + "_orient_" + str(i) + f"_{j}.npy", pt.values)
+
+    # Calculating input detector planes
+    input_txt_df = txt_df[(txt_df["particleID"] == 13) & (txt_df["x"] > 150*SCALE)][["ver_y", "ver_z", "ver_px", "ver_py", "ver_pz", "count"]]
+
+    # Compute 1st plane
+    input_txt_df["y_cut"] = pd.cut(txt_df["ver_y"], bins=bins, right=False)
+    input_txt_df["z_cut"] = pd.cut(txt_df["ver_z"], bins=bins, right=False)
+    pt = pd.pivot_table(input_txt_df, columns="y_cut", index="z_cut", values="count", aggfunc="sum")
+    np.save("detections/" + str(run) + "_orient_" + str(i) + "_0_input.npy", pt.values)
+
+    # Compute ith plane
+    for j in range(1, 20):
+        t = -SENSOR_DIST * j / txt_df["ver_px"]
+        input_txt_df["y2"] = input_txt_df["ver_y"] + input_txt_df["ver_py"] * t
+        input_txt_df["z2"] = input_txt_df["ver_z"] + input_txt_df["ver_pz"] * t
+
+        min_y, max_y = np.min(input_txt_df["ver_y"].values), np.max(input_txt_df["ver_y"].values)
+        min_z, max_z = np.min(input_txt_df["ver_z"].values), np.max(input_txt_df["ver_z"].values)
+        txt_df_2 = input_txt_df[
+            (min_y < input_txt_df["y2"]) & (max_y > input_txt_df["y2"]) & (min_z < input_txt_df["z2"]) & (max_z > input_txt_df["y2"])
+        ][["y2", "z2", "count"]]
+
+        txt_df_2["y2_cut"] = pd.cut(txt_df_2["y2"], bins=bins, right=False)
+        txt_df_2["z2_cut"] = pd.cut(txt_df_2["z2"], bins=bins, right=False)
+        pt = pd.pivot_table(txt_df_2, columns="y2_cut", index="z2_cut", values="count", aggfunc="sum")
+        np.save("detections/" + str(run) + "_orient_" + str(i) + f"_{j}_input.npy", pt.values)
 
 
 def rotate_cube(cuberay):

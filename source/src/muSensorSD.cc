@@ -103,6 +103,12 @@ void muSensorSD::EndOfEvent(G4HCofThisEvent *HCE) {
     std::vector <G4double> px_out;
     std::vector <G4double> py_out;
     std::vector <G4double> pz_out;
+    std::vector <G4double> ver_x_out;
+    std::vector <G4double> ver_y_out;
+    std::vector <G4double> ver_z_out;
+    std::vector <G4double> ver_px_out;
+    std::vector <G4double> ver_py_out;
+    std::vector <G4double> ver_pz_out;
     std::vector <G4double> time_out;
     std::vector <G4double> eIn_out;
     std::vector <G4double> eDep_out;
@@ -128,6 +134,12 @@ void muSensorSD::EndOfEvent(G4HCofThisEvent *HCE) {
         px_out.push_back(hit->GetMomentum().x() / MeV/(3e8 * m/s));
         py_out.push_back(hit->GetMomentum().y() / MeV/(3e8 * m/s));
         pz_out.push_back(hit->GetMomentum().z() / MeV/(3e8 * m/s));
+        ver_x_out.push_back(hit->GetVertexPos().x() / mm);
+        ver_y_out.push_back(hit->GetVertexPos().y() / mm);
+        ver_z_out.push_back(hit->GetVertexPos().z() / mm);
+        ver_px_out.push_back(hit->GetVertexMomentum().x() / MeV/(3e8 * m/s));
+        ver_py_out.push_back(hit->GetVertexMomentum().y() / MeV/(3e8 * m/s));
+        ver_pz_out.push_back(hit->GetVertexMomentum().z() / MeV/(3e8 * m/s));
         time_out.push_back(hit->GetTime() / ns);
         eIn_out.push_back(hit->GetEIn() / MeV);
         eDep_out.push_back(hit->GetEdep() / MeV);
@@ -139,6 +151,7 @@ void muSensorSD::EndOfEvent(G4HCofThisEvent *HCE) {
     if (NbHits != 0) { // [yy]
         //analyzer->Fill(NbHits,x_out,y_out,z_out,time_out,eIn_out,eDep_out,trackID_out,copyNo_out,particleID_out);
         analyzer->Fill(NbHits, event_out, x_out, y_out, z_out, px_out, py_out, pz_out,
+                       ver_x_out, ver_y_out, ver_z_out, ver_px_out, ver_py_out, ver_pz_out,
                        time_out, eIn_out, eDep_out, trackID_out, copyNo_out,
                        particleID_out); // [yy]
     }

@@ -13,6 +13,8 @@
 #include "G4PhysicalConstants.hh"
 #include "G4GeneralParticleSource.hh" // [yy] for gps
 
+using namespace std;
+
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 muPrimaryGeneratorAction::muPrimaryGeneratorAction()
@@ -36,7 +38,5 @@ muPrimaryGeneratorAction::~muPrimaryGeneratorAction() {
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
 void muPrimaryGeneratorAction::GeneratePrimaries(G4Event *anEvent) {
-
     gpsParticleGun->GeneratePrimaryVertex(anEvent);
-
 }

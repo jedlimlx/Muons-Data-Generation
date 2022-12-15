@@ -36,6 +36,8 @@ public:
     G4double GetEnergy()          const  { return energy; };      
     const G4ThreeVector& GetMomentum() const  { return momentum; };
     const G4ThreeVector& GetPos()      const  { return pos; };
+    const G4ThreeVector& GetVertexMomentum() const  { return vertexMomentum; };  // vertex means when it was produced
+    const G4ThreeVector& GetVertexPos()      const  { return vertexPos; };
     G4double GetTime()                 const  { return time; };      
     G4double GetEdep() const { return eDep;};
     void AddEdep(G4double val){ eDep += val;};
@@ -50,6 +52,8 @@ private:
     G4double      energy;
     G4ThreeVector momentum;
     G4ThreeVector pos;
+    G4ThreeVector vertexMomentum;
+    G4ThreeVector vertexPos;
     G4double      time;
     G4double 	  eDep;
     G4double      eIn;

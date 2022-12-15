@@ -35,15 +35,21 @@ public:
               std::vector <G4double> buf2,   // x
               std::vector <G4double> buf3,   // y
               std::vector <G4double> buf4,   // z
-              std::vector <G4double> buf5,   // time
-              std::vector <G4double> buf6,   // eIn
-              std::vector <G4double> buf7,   // eDep
-              std::vector <G4double> buf8,   // time
-              std::vector <G4double> buf9,   // eIn
-              std::vector <G4double> buf10,  // eDep
-              std::vector <G4int> buf11,     // TrackID
-              std::vector <G4int> buf12,     // copyNo
-              std::vector <G4int> buf13      // particleID
+              std::vector <G4double> buf5,   // px
+              std::vector <G4double> buf6,   // py
+              std::vector <G4double> buf7,   // pz
+              std::vector <G4double> buf8,   // ver_x
+              std::vector <G4double> buf9,   // ver_y
+              std::vector <G4double> buf10,   // ver_z
+              std::vector <G4double> buf11,   // ver_px
+              std::vector <G4double> buf12,   // ver_py
+              std::vector <G4double> buf13,   // ver_pz
+              std::vector <G4double> buf14,   // time
+              std::vector <G4double> buf15,   // eIn
+              std::vector <G4double> buf16,  // eDep
+              std::vector <G4int> buf17,     // TrackID
+              std::vector <G4int> buf18,     // copyNo
+              std::vector <G4int> buf19      // particleID
     );
 
     void Terminate();
@@ -65,6 +71,12 @@ private:
     G4double px;
     G4double py;
     G4double pz;
+    G4double ver_x;
+    G4double ver_y;
+    G4double ver_z;
+    G4double ver_px;
+    G4double ver_py;
+    G4double ver_pz;
     G4double time;
     G4double eIn;
     G4double eDep;
@@ -79,6 +91,12 @@ private:
     std::vector <G4double> pxbuf;  // [yy]
     std::vector <G4double> pybuf;  // [yy]
     std::vector <G4double> pzbuf;  // [yy]
+    std::vector <G4double> ver_xbuf;  // [yy]
+    std::vector <G4double> ver_ybuf;  // [yy]
+    std::vector <G4double> ver_zbuf;  // [yy]
+    std::vector <G4double> ver_pxbuf;  // [yy]
+    std::vector <G4double> ver_pybuf;  // [yy]
+    std::vector <G4double> ver_pzbuf;  // [yy]
     std::vector <G4double> timebuf;  // [yy]
     std::vector <G4double> eInbuf;   // [yy]
     std::vector <G4double> eDepbuf;  // [yy]

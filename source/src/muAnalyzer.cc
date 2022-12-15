@@ -54,15 +54,21 @@ void muAnalyzer::Fill(int buf0,                      // nHit [yy] modify
                       std::vector <G4double> buf2,   // x
                       std::vector <G4double> buf3,   // y
                       std::vector <G4double> buf4,   // z
-                      std::vector <G4double> buf5,   // time
-                      std::vector <G4double> buf6,   // eIn
-                      std::vector <G4double> buf7,   // eDep
-                      std::vector <G4double> buf8,   // time
-                      std::vector <G4double> buf9,   // eIn
-                      std::vector <G4double> buf10,  // eDep
-                      std::vector <G4int> buf11,     // TrackID
-                      std::vector <G4int> buf12,     // copyNo
-                      std::vector <G4int> buf13      // particleID
+                      std::vector <G4double> buf5,   // px
+                      std::vector <G4double> buf6,   // py
+                      std::vector <G4double> buf7,   // pz
+                      std::vector <G4double> buf8,   // ver_x
+                      std::vector <G4double> buf9,   // ver_y
+                      std::vector <G4double> buf10,  // ver_z
+                      std::vector <G4double> buf11,  // ver_px
+                      std::vector <G4double> buf12,  // ver_py
+                      std::vector <G4double> buf13,  // ver_pz
+                      std::vector <G4double> buf14,  // time
+                      std::vector <G4double> buf15,  // eIn
+                      std::vector <G4double> buf16,  // eDep
+                      std::vector <G4int> buf17,     // TrackID
+                      std::vector <G4int> buf18,     // copyNo
+                      std::vector <G4int> buf19      // particleID
 ) {
     /*
      * Fill(int nHit,                     //nHit [yy]
@@ -90,12 +96,18 @@ void muAnalyzer::Fill(int buf0,                      // nHit [yy] modify
     pxbuf = buf5;
     pybuf = buf6;
     pzbuf = buf7;
-    timebuf = buf8;
-    eInbuf = buf9;
-    eDepbuf = buf10;
-    trackIDbuf = buf11;
-    copyNobuf = buf12;
-    particleIDbuf = buf13;
+    ver_xbuf = buf8;
+    ver_ybuf = buf9;
+    ver_zbuf = buf10;
+    ver_pxbuf = buf11;
+    ver_pybuf = buf12;
+    ver_pzbuf = buf13;
+    timebuf = buf14;
+    eInbuf = buf15;
+    eDepbuf = buf16;
+    trackIDbuf = buf17;
+    copyNobuf = buf18;
+    particleIDbuf = buf19;
 
     //if (isRoot == true){
     for (int i = 0; i < nHit; ++i) {
@@ -106,6 +118,12 @@ void muAnalyzer::Fill(int buf0,                      // nHit [yy] modify
         px = pxbuf.at(i);
         py = pybuf.at(i);
         pz = pzbuf.at(i);
+        ver_x = ver_xbuf.at(i);
+        ver_y = ver_ybuf.at(i);
+        ver_z = ver_zbuf.at(i);
+        ver_px = ver_pxbuf.at(i);
+        ver_py = ver_pybuf.at(i);
+        ver_pz = ver_pzbuf.at(i);
         time = timebuf.at(i);
         eIn = eInbuf.at(i);
         eDep = eDepbuf.at(i);
@@ -126,6 +144,12 @@ void muAnalyzer::Fill(int buf0,                      // nHit [yy] modify
                 << " " << pxbuf.at(i)
                 << " " << pybuf.at(i)
                 << " " << pzbuf.at(i)
+                << " " << ver_xbuf.at(i)
+                << " " << ver_ybuf.at(i)
+                << " " << ver_zbuf.at(i)
+                << " " << ver_pxbuf.at(i)
+                << " " << ver_pybuf.at(i)
+                << " " << ver_pzbuf.at(i)
                 << " " << timebuf.at(i)
                 << " " << eInbuf.at(i)
                 << " " << eDepbuf.at(i)
@@ -143,6 +167,12 @@ void muAnalyzer::Fill(int buf0,                      // nHit [yy] modify
     pxbuf.clear();
     pybuf.clear();
     pzbuf.clear();
+    ver_xbuf.clear();
+    ver_ybuf.clear();
+    ver_zbuf.clear();
+    ver_pxbuf.clear();
+    ver_pybuf.clear();
+    ver_pzbuf.clear();
     timebuf.clear();
     eInbuf.clear();
     eDepbuf.clear();
