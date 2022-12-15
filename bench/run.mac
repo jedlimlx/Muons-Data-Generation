@@ -18,8 +18,8 @@
 /gps/pos/centre 0 0 0 cm
 /gps/pos/rot1 0 -1 0 # x -> -y
 /gps/pos/rot2 0 0 1  # y -> z
-/gps/pos/halfx 2.5 cm
-/gps/pos/halfy 2.5 cm
+/gps/pos/halfx 2.4 cm
+/gps/pos/halfy 2.4 cm
 
 # Direction and Angular: /gps/ang (ref: "2.7.3.4. Source direction and angular distribution" p.24)
 /gps/ang/type beam1d
