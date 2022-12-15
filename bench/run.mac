@@ -46,4 +46,4 @@
 
 # Number of beams generated
 #/run/beamOn 20 # for check
-/run/beamOn 500000 # for batch mode
+/run/beamOn 50000 # for batch mode
