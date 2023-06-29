@@ -1,9 +1,10 @@
+
 # ----------------------------------------------
 # Settings
 # ----------------------------------------------
 
-/control/verbose 2
-/tracking/verbose 1
+/control/verbose 0
+/tracking/verbose 0
 /event/verbose 0
 /gps/verbose 0
 
@@ -14,23 +15,22 @@
 # Position and Structure: /gps/pos (ref: "2.7.3.3. Position and Structure" p.23)
 /gps/pos/type Beam
 /gps/pos/shape Square
-/gps/pos/centre 0 0 0 cm
-/gps/pos/rot1 0 -1 0 # x -> -y
-/gps/pos/rot2 0 0 1  # y -> z
-/gps/pos/halfx 2.4 cm
-/gps/pos/halfy 2.4 cm
+/gps/pos/centre 0 0 0.9 m
+/gps/pos/rot1 -1 0 0
+/gps/pos/rot2 0 1 0
+/gps/pos/halfx 0.5 m
+/gps/pos/halfy 0.5 m
 
 # Direction and Angular: /gps/ang (ref: "2.7.3.4. Source direction and angular distribution" p.24)
 /gps/ang/type beam1d
 /gps/ang/sigma_r 0.02
-/gps/ang/rot1 0 -1 0 # x -> -y
-/gps/ang/rot2 0 0 1  # y -> z
-# (Note: The default direction is negative z. rot1 and rot2 are defined to change the direction into positive x.)
+/gps/pos/rot1 0 1 0
+/gps/pos/rot2 -1 0 0
 
 # Energy: /gps/ene (ref: "2.7.3.5 Energy spectra" p.25)
 /gps/particle mu-
 /gps/ene/type Mono
-/gps/ene/mono 250 MeV
+/gps/ene/mono 1000 MeV
 /gps/ene/sigma 100 MeV
 # /gps/ene/type Lin
 # /gps/ene/min 100 MeV
@@ -42,4 +42,4 @@
 # ----------------------------------------------
 
 /run/initialize
-/run/beamOn 50000
+/run/beamOn 40

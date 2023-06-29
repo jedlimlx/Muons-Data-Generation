@@ -38,11 +38,11 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     );
 
     // Building the voxels
-    int numVoxels = 128;
+    int numVoxels = 30;
     G4double voxelSize = targetSize/numVoxels;
     G4Material *voxelMaterial = nist->FindOrBuildMaterial("G4_U");
 
-    auto *solidVoxel = new G4Box("voxel", voxelSize, voxelSize, voxelSize);
+    auto *solidVoxel = new G4Box("voxel", voxelSize/2, voxelSize/2, voxelSize/2);
     auto *logicalVoxel = new G4LogicalVolume(solidVoxel, voxelMaterial, "logicalDetector");
 
     ifstream file(voxelFile);  // opening the file
@@ -63,7 +63,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
                     logicalWorld,
                     false,
                     count,
-                    true
+                    false
             );
         }
 
@@ -71,12 +71,12 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     }
 
     // Building the sensitive detector (only one because I'm lazy)
-    auto *solidDetector = new G4Box("solidDetector", 0.5*m, 0.5*m, 0.01*m);
+    auto *solidDetector = new G4Box("solidDetector", targetSize/2+padding, targetSize/2+padding, 0.01*m);
     auto *logicalDetector = new G4LogicalVolume(solidDetector, worldMaterial, "logicalDetector");
 
     G4VPhysicalVolume *physicalDetector = new G4PVPlacement(
             nullptr,
-            G4ThreeVector(0*m, 0*m, targetSize/2+detectorDistance-0.01*m),
+            G4ThreeVector(0*m, 0*m, -(targetSize/2+detectorDistance-0.01*m)),
             logicalDetector,
             "physicalDetector",
             logicalWorld,

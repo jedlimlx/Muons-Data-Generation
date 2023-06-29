@@ -2,7 +2,7 @@ import tqdm
 import numpy as np
 
 
-RESOLUTION = 128
+RESOLUTION = 30
 
 
 def rotate_cube(cuberay):
@@ -33,8 +33,8 @@ def main():
 
         # Converting to voxels
         voxels = generate_voxels(1, voxels)
-        np.savetxt("run_" + str(j) + ".voxel", voxels.flatten(), delimiter="\n", fmt="%1d")
-        np.save("voxels/run_" + str(j) + ".npy", voxels)
+        np.savetxt("voxel.voxel", voxels.flatten(), delimiter="\n", fmt="%1d")
+        # np.save("voxels/run_" + str(j) + ".npy", voxels)
 
 
 def fade(t):
