@@ -1,8 +1,10 @@
+import os
 import tqdm
+import subprocess
 import numpy as np
 
 
-RESOLUTION = 128
+RESOLUTION = 64
 
 
 def rotate_cube(cuberay):
@@ -25,16 +27,6 @@ def generate_voxels(value, voxels):
             z / RESOLUTION
         ) > 0.6 else voxels[x, y, z] for x in range(RESOLUTION)
     ] for y in range(RESOLUTION)] for z in range(RESOLUTION)])
-
-
-def main():
-    for j in tqdm.trange(1):
-        voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
-
-        # Converting to voxels
-        voxels = generate_voxels(1, voxels)
-        np.savetxt("voxel.voxel", voxels.flatten(), delimiter="\n", fmt="%1d")
-        # np.save("voxels/run_" + str(j) + ".npy", voxels)
 
 
 def fade(t):
@@ -91,4 +83,24 @@ class PerlinNoise: # because the library has "undesired behaviour"
 
 
 if __name__ == "__main__":
-    main()
+    # Copying the macro files
+    os.system("cp macros/* ./")
+
+    for i in tqdm.trange(10000):
+        voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
+
+        # Converting to voxels
+        voxels = generate_voxels(1, voxels)
+        np.save("voxels/run_" + str(i) + ".npy", voxels)
+        np.savetxt(f"voxels.txt", voxels.flatten(), delimiter="\n", fmt="%1d")
+
+        # Running the simulation
+        proc = subprocess.Popen(args=[
+            "./build/mu", "1",
+            "voxels.txt",
+            f"output/run_{i}.csv"
+        ], stdout=subprocess.DEVNULL)
+        proc.wait()
+
+    # Deleting the macro files
+    os.system("rm run.mac vis.mac")

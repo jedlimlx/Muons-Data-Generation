@@ -38,7 +38,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     );
 
     // Building the voxels
-    int numVoxels = 128;
+    int numVoxels = 64;
     G4double voxelSize = targetSize/numVoxels;
     G4Material *voxelMaterial = nist->FindOrBuildMaterial("G4_U");
 

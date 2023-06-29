@@ -2,3 +2,6 @@ build
 cmake-build-debug
 .idea
 voxels
+output
+run.mac
+vis.mac
