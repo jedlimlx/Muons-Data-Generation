@@ -1,3 +1,5 @@
+/run/numberOfThreads 12
+/run/initialize
 
 # ----------------------------------------------
 # Settings
@@ -41,5 +43,4 @@
 # run
 # ----------------------------------------------
 
-/run/initialize
 /run/beamOn 65536

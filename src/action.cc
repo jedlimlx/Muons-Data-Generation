@@ -8,3 +8,6 @@ void ActionInitialization::Build() const {
     auto *generator = new PrimaryGenerator();
     SetUserAction(generator);
 }
+
+void ActionInitialization::BuildForMaster() const {
+}

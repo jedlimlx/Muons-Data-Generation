@@ -1,6 +1,7 @@
 #include "iostream"
 
 #include "G4RunManager.hh"
+#include "G4MTRunManager.hh"
 #include "G4UImanager.hh"
 #include "G4VisManager.hh"
 #include "G4VisExecutive.hh"
@@ -16,18 +17,17 @@ int main(int argc, char** argv) {
         std::cout << "0 for interactive mode\n1 for batch mode\n";
     }
 
-    auto *runManager = new G4RunManager();
+    auto *runManager = new G4MTRunManager();
 
     auto *detector = new DetectorConstruction();
     detector->voxelFile = argv[2];
     detector->outputFile = argv[3];
 
     runManager->SetUserInitialization(detector);
-
     runManager->SetUserInitialization(new PhysicsList());
     runManager->SetUserInitialization(new ActionInitialization());
 
-    runManager->Initialize();
+    //runManager->Initialize();
 
     G4VisManager *visManager = new G4VisExecutive();
     visManager->Initialize();
