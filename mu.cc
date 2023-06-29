@@ -11,11 +11,16 @@
 #include "src/action.hh"
 
 int main(int argc, char** argv) {
+    if (argc < 4) {
+        std::cout << "The input format is ./mu <mode> <voxels file> <output file>" << std::endl;
+        std::cout << "0 for interactive mode\n1 for batch mode\n";
+    }
+
     auto *runManager = new G4RunManager();
 
     auto *detector = new DetectorConstruction();
-    if (argc > 2) detector->voxelFile = argv[2];
-    else detector->voxelFile = "voxels.txt";
+    detector->voxelFile = argv[2];
+    detector->outputFile = argv[3];
 
     runManager->SetUserInitialization(detector);
 
@@ -29,7 +34,7 @@ int main(int argc, char** argv) {
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-    if (argc < 1 || *argv[1] == '0') {
+    if (*argv[1] == '0') {
         auto *ui = new G4UIExecutive(argc, argv);
         UImanager->ApplyCommand("/control/execute vis.mac");
         ui->SessionStart();

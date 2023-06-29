@@ -2,7 +2,7 @@ import tqdm
 import numpy as np
 
 
-RESOLUTION = 30
+RESOLUTION = 128
 
 
 def rotate_cube(cuberay):

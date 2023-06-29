@@ -30,7 +30,7 @@
 # Energy: /gps/ene (ref: "2.7.3.5 Energy spectra" p.25)
 /gps/particle mu-
 /gps/ene/type Mono
-/gps/ene/mono 1000 MeV
+/gps/ene/mono 250 MeV
 /gps/ene/sigma 100 MeV
 # /gps/ene/type Lin
 # /gps/ene/min 100 MeV
@@ -42,4 +42,4 @@
 # ----------------------------------------------
 
 /run/initialize
-/run/beamOn 40
+/run/beamOn 100000

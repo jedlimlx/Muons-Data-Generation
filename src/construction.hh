@@ -14,6 +14,7 @@ public:
     ~DetectorConstruction();
 
     const char* voxelFile;
+    const char* outputFile;
 
     virtual G4VPhysicalVolume *Construct();
 };
