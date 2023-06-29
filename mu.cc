@@ -19,18 +19,18 @@ int main(int argc, char** argv) {
 
     runManager->Initialize();
 
-    auto *ui = new G4UIExecutive(argc, argv);
-
     G4VisManager *visManager = new G4VisExecutive();
     visManager->Initialize();
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-    if (argc > 0 && *argv[0] == '0') {
-        UImanager->ApplyCommand("/vis.mac/execute vis.mac");
-    } else if (*argv[0] == '1') {
-        UImanager->ApplyCommand("/vis.mac/execute run.mac");
+    std::cout << "hello world! " << argc << " " << *argv << std::endl;
+    if (argc < 1 || *argv[1] == '0') {
+        auto *ui = new G4UIExecutive(argc, argv);
+        UImanager->ApplyCommand("/control/execute vis.mac");
+        ui->SessionStart();
+    } else if (*argv[1] == '1') {
+        UImanager->ApplyCommand("/control/execute run.mac");
+        std::cout << "hello world!" << std::endl;
     }
-
-    ui->SessionStart();
 }
