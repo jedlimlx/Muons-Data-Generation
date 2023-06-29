@@ -13,7 +13,12 @@
 int main(int argc, char** argv) {
     auto *runManager = new G4RunManager();
 
-    runManager->SetUserInitialization(new DetectorConstruction());
+    auto *detector = new DetectorConstruction();
+    if (argc > 2) detector->voxelFile = argv[2];
+    else detector->voxelFile = "voxels.txt";
+
+    runManager->SetUserInitialization(detector);
+
     runManager->SetUserInitialization(new PhysicsList());
     runManager->SetUserInitialization(new ActionInitialization());
 
@@ -24,13 +29,11 @@ int main(int argc, char** argv) {
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
 
-    std::cout << "hello world! " << argc << " " << *argv << std::endl;
     if (argc < 1 || *argv[1] == '0') {
         auto *ui = new G4UIExecutive(argc, argv);
         UImanager->ApplyCommand("/control/execute vis.mac");
         ui->SessionStart();
     } else if (*argv[1] == '1') {
         UImanager->ApplyCommand("/control/execute run.mac");
-        std::cout << "hello world!" << std::endl;
     }
 }

@@ -13,9 +13,7 @@ public:
     DetectorConstruction();
     ~DetectorConstruction();
 
-    virtual G4VPhysicalVolume *Construct();
+    const char* voxelFile;
 
-private:
-    G4LogicalVolume* logicalDetector;
-    virtual void constructSensitiveDetector();
+    virtual G4VPhysicalVolume *Construct();
 };
