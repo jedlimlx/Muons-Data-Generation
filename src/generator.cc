@@ -28,6 +28,4 @@ void PrimaryGenerator::GeneratePrimaries(G4Event *event) {
     */
 
     fParticleGun->GeneratePrimaryVertex(event);
-
-    std::cout << "particle fired!" << std::endl;
 }
