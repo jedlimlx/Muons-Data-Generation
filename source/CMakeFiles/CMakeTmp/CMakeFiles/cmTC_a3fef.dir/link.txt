@@ -1,1 +1,0 @@
-/usr/bin/cc   -pipe -pthread -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_a3fef.dir/CheckFunctionExists.c.o -o cmTC_a3fef 
