@@ -6,9 +6,9 @@
 #include "G4VisExecutive.hh"
 #include "G4UIExecutive.hh"
 
-#include "construction.hh"
-#include "physics.hh"
-#include "action.hh"
+#include "src/construction.hh"
+#include "src/physics.hh"
+#include "src/action.hh"
 
 int main(int argc, char** argv) {
     auto *runManager = new G4RunManager();
@@ -25,11 +25,12 @@ int main(int argc, char** argv) {
     visManager->Initialize();
 
     G4UImanager *UImanager = G4UImanager::GetUIpointer();
-    UImanager->ApplyCommand("/vis/open OGLIQt");
-    UImanager->ApplyCommand("/vis/drawVolume");
-    UImanager->ApplyCommand("/vis/scene/add/axes 0 0 0 5 cm");
-    UImanager->ApplyCommand("/vis/scene/set/autoRefresh true");
-    UImanager->ApplyCommand("/vis/scene/add/trajectories smooth");
+
+    if (argc > 0 && *argv[0] == '0') {
+        UImanager->ApplyCommand("/vis.mac/execute vis.mac");
+    } else if (*argv[0] == '1') {
+        UImanager->ApplyCommand("/vis.mac/execute run.mac");
+    }
 
     ui->SessionStart();
 }
