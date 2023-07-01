@@ -13,7 +13,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     G4NistManager *nist = G4NistManager::Instance();
     G4Material *worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
 
-    G4double padding = 0.2*m;
+    G4double padding = 0.4*m;
     G4double targetSize = 1*m;
     G4double detectorDistance = 0.4*m;
 
@@ -40,17 +40,37 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     // Building the voxels
     int numVoxels = 64;
     G4double voxelSize = targetSize/numVoxels;
-    G4Material *voxelMaterial = nist->FindOrBuildMaterial("G4_U");
+
+    G4String materials[] = {
+            "G4_CONCRETE",
+            "G4_Al",
+            "G4_Ti",
+            "G4_Fe",
+            "G4_Ni",
+            "G4_Sn",
+            "G4_Ag",
+            "G4_Pb",
+            "G4_Au",
+            "G4_U"
+    };
 
     auto *solidVoxel = new G4Box("voxel", voxelSize/2, voxelSize/2, voxelSize/2);
-    auto *logicalVoxel = new G4LogicalVolume(solidVoxel, voxelMaterial, "logicalDetector");
+
+    G4LogicalVolume *logicalVoxels[10];
+    for (int i = 0; i < 10; i++) {
+        logicalVoxels[i] = new G4LogicalVolume(
+                solidVoxel,
+                nist->FindOrBuildMaterial(materials[i]),
+                "logicalDetector" + to_string(i)
+        );
+    }
 
     ifstream file(voxelFile);  // opening the file
 
     int count = 0;
     string text;
     while (getline(file, text)) {
-        if (text[0] == '1') {
+        if (text[0] != '0') {
             int x = count % numVoxels - numVoxels/2;
             int y = (count / numVoxels) % numVoxels - numVoxels/2;
             int z = count / (numVoxels*numVoxels) - numVoxels/2;
@@ -58,7 +78,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
             G4VPhysicalVolume *physicalVoxel = new G4PVPlacement(
                     nullptr,
                     G4ThreeVector(x*voxelSize, y*voxelSize, z*voxelSize),
-                    logicalVoxel,
+                    logicalVoxels[stoi(text) - 1],
                     "physicalVoxel",
                     logicalWorld,
                     false,
