@@ -7,6 +7,7 @@ SensitiveDetector::~SensitiveDetector() {}
 G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history) {
     G4Track *track = step->GetTrack();
 
+    /*
     // position
     file << track->GetPosition().x() << "," <<
             track->GetPosition().y() << "," <<
@@ -29,6 +30,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
 
     // starting energy
     file << track->GetVertexKineticEnergy() << std::endl;
+     */
 
     return true;
 }

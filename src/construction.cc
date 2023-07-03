@@ -13,7 +13,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     G4NistManager *nist = G4NistManager::Instance();
     G4Material *worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
 
-    G4double padding = 0.4*m;
+    G4double padding = 0*m;
     G4double targetSize = 1*m;
     G4double detectorDistance = 0.4*m;
 

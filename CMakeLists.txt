@@ -19,6 +19,8 @@ add_executable(
         src/action.hh
         src/physics.cc
         src/physics.hh
+        src/steppingAction.hh
+        src/steppingAction.cc
 )
 target_link_libraries(mu ${Geant4_LIBRARIES})
 

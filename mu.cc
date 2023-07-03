@@ -25,11 +25,14 @@ int main(int argc, char** argv) {
 
     auto *detector = new DetectorConstruction();
     detector->voxelFile = argv[2];
-    detector->outputFile = argv[3];
+    //detector->outputFile = argv[3];
 
     runManager->SetUserInitialization(detector);
     runManager->SetUserInitialization(new PhysicsList());
-    runManager->SetUserInitialization(new ActionInitialization());
+
+    auto *action = new ActionInitialization();
+    action->file = argv[3];
+    runManager->SetUserInitialization(action);
 
     runManager->Initialize();
 
