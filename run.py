@@ -188,7 +188,7 @@ if __name__ == "__main__":
             num = random.randint(1, 4)
             for k in range(num):
                 value = random.randint(1, 10)
-                threshold = random.uniform(0.7 + 0.1 * num, 1.3 + 0.1 * num)
+                threshold = random.uniform(0.7 + 0.1 * num + 0.01 * value, 1.3 + 0.1 * num + 0.01 * value)
 
                 noise = generate_fractal_noise_3d((RESOLUTION, RESOLUTION, RESOLUTION), (2, 2, 2), octaves=3)
                 noise = (noise - tf.math.reduce_mean(noise)) / tf.math.reduce_std(noise)
