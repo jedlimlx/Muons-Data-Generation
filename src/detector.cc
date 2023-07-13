@@ -7,7 +7,10 @@ SensitiveDetector::~SensitiveDetector() {}
 G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history) {
     G4Track *track = step->GetTrack();
 
-    /*
+    // only want muons
+    if (track->GetParticleDefinition()->GetParticleName() != "mu-") return true;
+    if ((int)track->GetVertexPosition().z() != 900) return true;
+
     // position
     file << track->GetPosition().x() << "," <<
             track->GetPosition().y() << "," <<
@@ -30,7 +33,8 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
 
     // starting energy
     file << track->GetVertexKineticEnergy() << std::endl;
-     */
+
+    track->SetTrackStatus(fStopAndKill);
 
     return true;
 }

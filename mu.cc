@@ -28,7 +28,13 @@ int main(int argc, char** argv) {
     //detector->outputFile = argv[3];
 
     runManager->SetUserInitialization(detector);
-    runManager->SetUserInitialization(new PhysicsList());
+
+
+    G4PhysListFactory *physListFactory = new G4PhysListFactory();
+    G4VUserPhysicsList *physicsList =
+            physListFactory->GetReferencePhysList("LHEP");
+
+    runManager->SetUserInitialization(physicsList);
 
     auto *action = new ActionInitialization();
     action->file = argv[3];

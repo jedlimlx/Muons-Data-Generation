@@ -155,7 +155,7 @@ def generate_fractal_noise_3d(shape, res, octaves=1, persistence=0.5):
 
 
 def thread_function(thread_num, i, voxels):
-    np.savetxt(f"voxels_{thread_num}.txt", voxels.flatten(), delimiter="\n")
+    np.savetxt(f"voxels_{thread_num}.txt", voxels.flatten().astype(np.int32), delimiter="\n", fmt="%d")
     np.save("voxels/run_" + str(i) + ".npy", voxels)
 
     # Running the simulation
@@ -188,7 +188,7 @@ if __name__ == "__main__":
             num = random.randint(1, 4)
             for k in range(num):
                 value = random.randint(1, 10)
-                threshold = random.uniform(0.7 + 0.1 * num + 0.01 * value, 1.3 + 0.1 * num + 0.01 * value)
+                threshold = random.uniform(0.7 + 0.05 * num + 0.01 * value, 1.3 + 0.05 * num + 0.01 * value)
 
                 noise = generate_fractal_noise_3d((RESOLUTION, RESOLUTION, RESOLUTION), (2, 2, 2), octaves=3)
                 noise = (noise - tf.math.reduce_mean(noise)) / tf.math.reduce_std(noise)
