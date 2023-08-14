@@ -20,6 +20,7 @@ void SteppingAction::UserSteppingAction(const G4Step *step) {
         }
     }
 
+    /*
     file << "\"" << (int)track->GetVertexPosition().x()
                  << (int)track->GetVertexPosition().y()
                  << (int)track->GetVertexPosition().z() << "\"" << ",";
@@ -43,4 +44,5 @@ void SteppingAction::UserSteppingAction(const G4Step *step) {
             track->GetMomentumDirection().z() << ",";
 
     file << step->GetPreStepPoint()->GetTouchable()->GetCopyNumber() << std::endl;
+    */
 }

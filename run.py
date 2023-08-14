@@ -173,11 +173,12 @@ if __name__ == "__main__":
     # Copying the macro files
     os.system("cp macros/* ./")
 
-    i = 0
+    i = 2400
     pbar = tqdm.tqdm(total=10000)
     while i < 10000:
         threads = []
         for j in range(num_threads):
+            """
             voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
 
             # List of materials by radiation length
@@ -188,12 +189,15 @@ if __name__ == "__main__":
             num = random.randint(1, 4)
             for k in range(num):
                 value = random.randint(1, 10)
-                threshold = random.uniform(0.7 + 0.05 * num + 0.01 * value, 1.3 + 0.05 * num + 0.01 * value)
+                threshold = random.uniform(0.7 + 0.1 * num + 0.01 * value, 1.3 + 0.1 * num + 0.01 * value)
 
                 noise = generate_fractal_noise_3d((RESOLUTION, RESOLUTION, RESOLUTION), (2, 2, 2), octaves=3)
                 noise = (noise - tf.math.reduce_mean(noise)) / tf.math.reduce_std(noise)
-                voxels = value * ((noise.numpy() > threshold) & (voxels == 0)).astype("int32")
+                voxels = voxels + value * ((noise.numpy() > threshold) & (voxels == 0)).astype("int32")
                 # print(voxels)
+            """
+
+            voxels = np.load(f"voxels/run_{i}.npy")
 
             # Running thread
             thread = threading.Thread(target=thread_function, args=(j, i, voxels))
