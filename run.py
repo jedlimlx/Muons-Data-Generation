@@ -6,8 +6,8 @@ import subprocess
 import numpy as np
 import tensorflow as tf
 
-RESOLUTION = 64
-ROOT = "/mnt/d/muons_data/muons_64x64_val"
+RESOLUTION = 128
+ROOT = "/mnt/d/muons_data/muons_128x128"
 
 
 def rotate_cube(cuberay):

@@ -1,5 +1,5 @@
 // resolution of the voxels
-#define RESOLUTION 64
+#define RESOLUTION 128
 
 // geometry looks like this (top view)
 // *             padd-              *
