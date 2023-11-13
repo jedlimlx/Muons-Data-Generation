@@ -1,4 +1,5 @@
 #include "detector.hh"
+#include "CONSTANTS.hh"
 
 SensitiveDetector::SensitiveDetector(G4String name) : G4VSensitiveDetector(name) {}
 
@@ -9,7 +10,7 @@ G4bool SensitiveDetector::ProcessHits(G4Step* step, G4TouchableHistory* history)
 
     // only want muons
     if (track->GetParticleDefinition()->GetParticleName() != "mu-") return true;
-    if ((int)track->GetVertexPosition().z() != 900) return true;
+    if ((int)track->GetVertexPosition().z() != (int)((DETECTOR_DISTANCE + TARGET_SIZE / 2)*1000)) return true;
 
     // position
     file << track->GetPosition().x() << "," <<

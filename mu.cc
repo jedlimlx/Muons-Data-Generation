@@ -32,7 +32,7 @@ int main(int argc, char** argv) {
 
     G4PhysListFactory *physListFactory = new G4PhysListFactory();
     G4VUserPhysicsList *physicsList =
-            physListFactory->GetReferencePhysList("LHEP");
+            physListFactory->GetReferencePhysList("FTFP_BERT");
 
     runManager->SetUserInitialization(physicsList);
 

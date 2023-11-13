@@ -14,11 +14,11 @@
 # Position and Structure: /gps/pos (ref: "2.7.3.3. Position and Structure" p.23)
 /gps/pos/type Beam
 /gps/pos/shape Square
-/gps/pos/centre 0 0 0.9 m
+/gps/pos/centre 0 0 1.0 m
 /gps/pos/rot1 -1 0 0
 /gps/pos/rot2 0 1 0
-/gps/pos/halfx 1.0 m
-/gps/pos/halfy 1.0 m
+/gps/pos/halfx 3 m
+/gps/pos/halfy 3 m
 
 # Direction and Angular: /gps/ang (ref: "2.7.3.4. Source direction and angular distribution" p.24)
 /gps/ang/type cos
@@ -43,4 +43,4 @@
 # ----------------------------------------------
 
 /run/initialize
-/run/beamOn 65536
+/run/beamOn 400000

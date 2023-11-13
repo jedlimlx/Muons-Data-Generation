@@ -1,6 +1,7 @@
 #include "string"
 
 #include "construction.hh"
+#include "CONSTANTS.hh"
 
 using namespace std;
 
@@ -12,9 +13,9 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     G4NistManager *nist = G4NistManager::Instance();
     G4Material *worldMaterial = nist->FindOrBuildMaterial("G4_AIR");
 
-    G4double padding = 0.5*m;
-    G4double targetSize = 1*m;
-    G4double detectorDistance = 0.4*m;
+    G4double padding = PADDING*m;
+    G4double targetSize = TARGET_SIZE*m;
+    G4double detectorDistance = DETECTOR_DISTANCE*m;
 
     auto *solidWorld = new G4Box(
             "solidWorld",
@@ -37,17 +38,28 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
     );
 
     // Building the voxels
-    int numVoxels = 64;
+    int numVoxels = RESOLUTION;
     G4double voxelSize = targetSize/numVoxels;
 
     G4String materials[] = {
+            "G4_BENZENE",
+            "G4_METHANOL",
+            "G4_WATER",
+            "G4_Mg",
             "G4_CONCRETE",
+            "G4_GYPSUM",
+            "G4_Ca",
+            "G4_S",
+            "G4_Si",
             "G4_Al",
-            "G4_Ti",
+            "G4_Cs",
+            "G4_Mn",
             "G4_Fe",
+            "G4_I",
             "G4_Ni",
-            "G4_Sn",
+            "G4_Mo",
             "G4_Ag",
+            "G4_Po",
             "G4_Pb",
             "G4_Au",
             "G4_U"
@@ -55,8 +67,8 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
 
     auto *solidVoxel = new G4Box("voxel", voxelSize/2, voxelSize/2, voxelSize/2);
 
-    G4LogicalVolume *logicalVoxels[10];
-    for (int i = 0; i < 10; i++) {
+    G4LogicalVolume *logicalVoxels[21];
+    for (int i = 0; i < 21; i++) {
         logicalVoxels[i] = new G4LogicalVolume(
                 solidVoxel,
                 nist->FindOrBuildMaterial(materials[i]),

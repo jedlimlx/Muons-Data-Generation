@@ -6,8 +6,8 @@ import subprocess
 import numpy as np
 import tensorflow as tf
 
-
 RESOLUTION = 64
+ROOT = "/mnt/d/muons_data/muons_64x64_val"
 
 
 def rotate_cube(cuberay):
@@ -156,13 +156,13 @@ def generate_fractal_noise_3d(shape, res, octaves=1, persistence=0.5):
 
 def thread_function(thread_num, i, voxels):
     np.savetxt(f"voxels_{thread_num}.txt", voxels.flatten().astype(np.int32), delimiter="\n", fmt="%d")
-    np.save("voxels/run_" + str(i) + ".npy", voxels)
+    np.save(f"{ROOT}/voxels/run_" + str(i) + ".npy", voxels)
 
     # Running the simulation
     proc = subprocess.Popen(args=[
         "./build/mu", "1",
         f"voxels_{thread_num}.txt",
-        f"output/run_{i}.csv"
+        f"{ROOT}/output/run_{i}.csv"
     ], stdout=subprocess.DEVNULL)
     proc.wait()
 
@@ -180,22 +180,45 @@ if __name__ == "__main__":
         for j in range(num_threads):
             voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)
 
-            # List of materials by radiation length
-            # Materials (Concrete, Al, Ti, Fe, Ni, Sn, Ag, Pb, Au, U)
-            radiation_lengths = [11.55, 8.897, 3.560, 1.757, 1.424, 1.206, 0.8543, 0.5612, 0.3344, 0.3166]
+            # list of materials by radiation length
+            radiation_lengths = [
+                49.834983498349835,  # benzene
+                49.82309830679809,   # methanol
+                36.08,               # water
+                14.385057471264368,  # magnesium
+                11.552173913043479,  # concrete
+                10.607758620689655,  # gypsum
+                10.412903225806451,  # calcium
+                9.75,                # sulfur
+                9.368827823100043,   # silicon
+                8.895887365690998,   # aluminium
+                4.436732514682328,   # caesium
+                1.967741935483871,   # manganese
+                1.7576835153670307,  # iron
+                1.7200811359026373,  # iodine
+                1.4243990114580993,  # nickel
+                0.9589041095890413,  # molybdenum
+                0.8542857142857143,  # silver
+                0.6609442060085837,  # polonium
+                0.5612334801762114,  # lead
+                0.33436853002070394, # gold
+                0.316622691292876    # uranium
+            ]
 
             # Converting to voxels
             num = random.randint(1, 4)
             for k in range(num):
-                value = random.randint(1, 10)
-                threshold = random.uniform(0.7 + 0.1 * num + 0.01 * value, 1.3 + 0.1 * num + 0.01 * value)
+                value = random.choice(
+                    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] +
+                    [12, 13, 14, 15, 16, 17, 18, 19, 20, 21] * 3
+                )
+                threshold = random.uniform(0.7 + 0.1 * num + 0.002 * value, 1.3 + 0.1 * num + 0.002 * value)
 
                 noise = generate_fractal_noise_3d((RESOLUTION, RESOLUTION, RESOLUTION), (2, 2, 2), octaves=3)
                 noise = (noise - tf.math.reduce_mean(noise)) / tf.math.reduce_std(noise)
                 voxels = voxels + value * ((noise.numpy() > threshold) & (voxels == 0)).astype("int32")
-                # print(voxels)
 
-            # voxels = np.load(f"voxels/run_{i}.npy")
+            # voxels = np.load(f"{ROOT}/voxels/run_{i}.npy")
 
             # Running thread
             thread = threading.Thread(target=thread_function, args=(j, i, voxels))

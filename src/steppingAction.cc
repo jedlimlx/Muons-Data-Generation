@@ -1,4 +1,5 @@
 #include "steppingAction.hh"
+#include "CONSTANTS.hh"
 
 SteppingAction::SteppingAction() {}
 
@@ -7,15 +8,18 @@ SteppingAction::~SteppingAction() {}
 void SteppingAction::UserSteppingAction(const G4Step *step) {
     G4Track *track = step->GetTrack();
 
+    int detector_distance = (int) ((DETECTOR_DISTANCE + TARGET_SIZE / 2)*1000);
+    int detector_size = (int) ((TARGET_SIZE / 2 + PADDING)*1000);
+
     // only want muons
     if (track->GetParticleDefinition()->GetParticleName() != "mu-") return;
-    if ((int)track->GetVertexPosition().z() != 900) return;
+    if ((int)track->GetVertexPosition().z() != detector_distance) return;
 
-    if (track->GetVertexPosition().z() > 890) {
-        double t = -1800 / track->GetVertexMomentumDirection().z();
+    if (track->GetVertexPosition().z() > detector_distance-10) {
+        double t = -2*detector_distance / track->GetVertexMomentumDirection().z();
 
         G4ThreeVector vec = t * track->GetVertexMomentumDirection() + track->GetVertexPosition();
-        if (vec.x() > 1000 || vec.x() < -1000 || vec.y() > 1000 || vec.y() < -1000) {
+        if (vec.x() > detector_size || vec.x() < -detector_size || vec.y() > detector_size || vec.y() < -detector_size) {
             track->SetTrackStatus(fStopAndKill);
         }
     }
