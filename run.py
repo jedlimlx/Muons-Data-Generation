@@ -6,8 +6,8 @@ import subprocess
 import numpy as np
 import tensorflow as tf
 
-RESOLUTION = 128
-ROOT = "/mnt/d/muons_data/muons_128x128"
+RESOLUTION = 64
+ROOT = "/mnt/d/muons_data/funny"
 
 
 def rotate_cube(cuberay):
@@ -168,14 +168,14 @@ def thread_function(thread_num, i, voxels):
 
 
 if __name__ == "__main__":
-    num_threads = 12
+    num_threads = 2
 
     # Copying the macro files
     os.system("cp macros/* ./")
 
     i = 0
-    pbar = tqdm.tqdm(total=10000)
-    while i < 10000:
+    pbar = tqdm.tqdm(total=20000)
+    while i < 20000:
         threads = []
         for j in range(num_threads):
             voxels = np.zeros((RESOLUTION, RESOLUTION, RESOLUTION), dtype=np.int32)

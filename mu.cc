@@ -11,6 +11,8 @@
 #include "src/physics.hh"
 #include "src/action.hh"
 
+#include "src/CONSTANTS.hh"
+
 int main(int argc, char** argv) {
     // because the simulation is somehow IO bound
     std::ios_base::sync_with_stdio(false);
@@ -25,7 +27,7 @@ int main(int argc, char** argv) {
 
     auto *detector = new DetectorConstruction();
     detector->voxelFile = argv[2];
-    detector->outputFile = argv[3];
+    if (not TRAJECTORY) detector->outputFile = argv[3];
 
     runManager->SetUserInitialization(detector);
 
@@ -37,7 +39,7 @@ int main(int argc, char** argv) {
     runManager->SetUserInitialization(physicsList);
 
     auto *action = new ActionInitialization();
-    //action->file = argv[3];
+    if (TRAJECTORY) action->file = argv[3];
     runManager->SetUserInitialization(action);
 
     runManager->Initialize();
